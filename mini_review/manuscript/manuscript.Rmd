@@ -1,0 +1,93 @@
+---
+title: "Registered Reports: a mini review"
+author: "Katie Drax"
+date: 
+output: html_document
+csl: apa.csl
+
+---
+
+```{r setup, include=T}
+knitr::opts_chunk$set(echo = F)
+
+###################
+# Create headers  ####
+##################
+
+# Create variable for input file
+
+input_file <- "../data/rr_zotero_export.csv"
+
+# Read in headers on second row
+
+headers <- read.csv(input_file, nrows = 1, header = FALSE, stringsAsFactors = FALSE, strip.white = T, encoding = "UTF-8")
+
+# Transpose headers
+
+headers <- t(headers)
+
+# clean headers
+
+headers <- tolower(headers)
+headers <- gsub("\\s", "_", headers)
+
+
+##############
+# Import  data####
+##############
+# import data skipping first row (headers)
+
+df <- read.csv(input_file, skip = 1, header =  FALSE, col.names = headers,
+               na.strings = c("", " "), stringsAsFactors = FALSE, 
+               strip.white = T, encoding = "UTF-8", row.names = NULL)
+
+###################
+# Drop empty cols #
+#################
+
+df <- df[colSums(!is.na(df)) > 0]
+ 
+##################
+# extract include ####
+#####################
+
+inc <- df[grep("include", df$manual_tags), ]
+exc <- df[grep("exclude", df$manual_tags), ]
+
+############
+# clean notes ####
+#############
+
+row.names(inc) <- NULL
+
+inc$notes <- gsub("<br />", " ", inc$notes)
+
+###############
+# export title notes & author ####
+#############
+
+inc_has_note <- inc[!is.na(inc$notes), c("notes", "author", "title", "publication_year", "manual_tags")]
+
+inc_no_note <- inc[is.na(inc$notes), c("notes", "author", "title", "publication_year", "manual_tags")]
+
+# check all obs in noteless dont' have a note b/c they are empirical, key or critques
+
+if (length(grep("empirical|key|critique", inc_no_note$manual_tags)) != length(inc_no_note$notes)) {
+  stop("some noteless articles are not key, empirical or critiques")
+} else {
+  print("all noteless articles are key empirical or critiques")
+}
+
+
+
+write.csv(inc_has_note, "../outputs/included_noted.csv", row.names = F, fileEncoding = "UTF-8")
+
+```
+
+# Rationale
+
+To provide an overview of the current registered report climate.
+
+# Interpretation
+
+
