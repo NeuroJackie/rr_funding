@@ -1,0 +1,79 @@
+Registered Reports Funding/Research Grants
+	What
+		Combines the Registered Reports publishing model into the process of allocating grant funding as as funders and journals review research protocols simulateously. Successful protocols are offered financial support by the funder and in-principal acceptance for publication. (Does this reflect all the models?)
+	Acceptability
+		Recognised as an indcator of rigour in REF 2021
+		5 existing partnerships
+			Cancer Research UK and Nicotine & Tobacco Research
+				What
+			Global Research Awards for Nicotine Dependence (GRAND, funded by Pfizer) and Nicotine & Tobacco Research
+				What
+			Children's Tumor Foundation and PLOS ONE: Drug Discovery Initiative Registered Report (DDIRR) 2017 Awards. The registered projects for this program are here.
+				What
+			The Association for Politics & The Life Sciences will support data collection costs of up to seven projects as part of a registered research report special issue.
+				What
+			Prostate Cancer Foundation - Movember Foundation Reproducibility Initiative with PeerJ
+				What
+
+?https://www.psychologicalscience.org/observer/aps-replication-initiative-underway
+
+	Preregistration
+		Target problems 
+			P-hacking, selective outcome reporting & HARKing
+				How
+					Comparing published article to preregistered protocols can identifying analyses or outcomes are unplanned additions or planned and excluded + any changes to 'tested hypothesis' 
+				Efficacy
+			Unclear confirmatory & exploratory research
+				How
+					Can identify which research is planned (confirmatory) or unplanned (exploratory)
+				Efficacy
+
+		Barriers
+	Results blind peer review
+		Impact
+		Barriers
+	Pre-study peer review
+		Impact
+			Prevent waste
+				How
+					Identify methodological flaws before study is conducted
+		Barriers
+	In principal acceptance
+		Impact
+			Reduces editorial biases vs results
+				How
+					Manuscript cannot be rejected based on it's results
+			Reduces file drawer
+				How
+					Report is mostly complete so researchers have already invested time into publishing these results and the remaining effort is reduced.
+					Fear of rejection as a reason for not submitting is eliminated
+				Moderators
+					Public record of reason for withdrawal
+						Deincentivises withdrawal based on results as this will be public knowledge if there are negative attitudes towards refusing to publish your research based on their results. 
+			Guarentees timely publication
+				How
+					? (time-lag bias?)
+		Barriers
+	Funder peer review
+		Impact
+		Barriers
+	Publication peer review
+		Impact
+		Barriers
+	Combining publication and funding decision making
+		Impact
+			Increase efficiency/reduce waste
+				Methodologically questionable research is not funded
+					Moderators
+						Nothing is stopping these researchers seeking funding elsewhere since rejections are not public (?)
+				Reduces burden on reviewers
+					How?
+				Funder is guarenteed publication of funded research
+		Evidence
+			
+		Barriers
+
+Crowdsourced RR funding
+
+
+REF 2021 - "registered reports, pre-registration, publication of data sets, experimental materials, analytic code, and use of reporting checklists for publication purposes and those relating to the use of animals in research. These contribute to the evaluation of rigour for submitted output"
