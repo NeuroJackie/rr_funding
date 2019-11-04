@@ -1,0 +1,107 @@
+---
+title: "Project protocol"
+subtitle: "Registered reports funding models: a feasibility study"
+author: "Christopher Chambers, Katie Drax,  Marcus Munafò and Jacqueline Thompson"
+date: "November 2019"
+output: word_document
+csl: apa.csl
+bibliography: rr_library.bib
+---
+
+# Background
+
+# Rationale for research question
+
+# Design
+
+# Objectives
+
+# Project site
+
+# Sampling procedure
+
+## Inclusion criteria
+
+## Sample size determination
+
+# Project measures
+
+# Materials
+
+# Procedure
+
+# Analysis plan
+
+# Ethical Considerations and Informed Consent
+
+Ethics approval for the project was obtained from the Faculty of Science Research Ethics Committee at the University of Bristol (approval code: [insert once given]). 
+
+[targ template for qualitative work]
+
+# Safety
+ 
+There are no expected hazards, due to the project taking place entirely online.
+
+# Data Management
+
+All aspects of the Data Protection Act will be adhered to. All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF.
+
+## Anonymised project data
+
+All project data will be anonymised using a unique numeric identifier. Original computer data files will be backed up on a secured University of Bristol network drive. At the end of the project, electronic project data (including finalised data sheet) will be transferred to a designated University of Bristol Research Data Storage Facility for long-term archiving. Project data will be kept for a minimum of 15 years. At the appropriate time the data sheet will be locked and made open using the University of Bristol Research Data Repository.
+
+## Screening documents and participant contact details
+
+Participant contact details and personal details will be kept confidential. These will be kept for a year after project completion or until data are made open (whichever comes first), after which these documents will be destroyed. 
+
+## Revoked data
+
+If a participant decides that they do not want their data used after their participation they have the right to request that the data are withdrawn. They can request this up until the project is complete. Once the project is complete, they will be assigned a unique ID number. As participants are not aware of their unique ID number researchers will have no way to connect them with their data to revoke it. Participants will be informed of this before taking part in the project. 
+
+# Quality Control and Quality Assurance
+ 
+The investigators will be responsible for data quality, which will be monitored in-house.
+ 
+# Insurance
+
+This project will be sponsored by the University of Bristol. The University has Public Liability Insurance to cover the liability of the University to research participants. In the event that something goes wrong and a participant is harmed during the research project there are no special compensation arrangements. If a participant is harmed and this is due to someone's negligence then they may have grounds for a legal action for compensation against Bristol University or one of the other parties to the research, but they may have to pay their own legal costs.
+ 
+# Publication Policy
+ 
+The findings from this research project may be published in an appropriate scientific journal (and made available open access), and/or presented at an appropriate meeting. 
+
+# Project personnel
+
+Katie Drax
+School of Psychological Science 
+12a Priory Road
+Bristol, BS8 1TU
+katie.drax@bristol.ac.uk 
+
+Marcus Munafò
+School of Psychological Science 
+12a Priory Road
+Bristol, BS8 1TU
+marcus.munafo@bristol.ac.uk 
+
+Jacqueline Thompson
+School of Psychological Science 
+12a Priory Road
+Bristol, BS8 1TU
+[?]@bristol.ac.uk 
+
+# Contributions and Authorship
+ 
+KD and JT are the guarantors of the project. MM will supervise the project. [contributions to protocol]
+
+# Funding Source
+
+This work is being funded by the John Climax Benevolent Fund. The funder will support the conduct of the work by paying KD's stipend. The funder has and will have no input on any aspect of the project, such the protocol design, data collection, data analysis nor interpretation or publication of results. 
+
+[others?]
+
+# Conflicts of Interest
+
+[Chris & Marcus?]
+
+# References
