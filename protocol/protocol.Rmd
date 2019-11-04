@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = F)
 library(tidyverse)
 library(knitr)
 
+options(knitr.kable.NA = "")
+
 ### 
 # import data ####
 #####
@@ -64,8 +66,9 @@ nmax <- max(str_count(df$critique_responses_opintion, ";"), na.rm = T) + 1
 
 df <- separate(df, critique_responses_opintion, into = paste0("critique_responses", seq_len(nmax)), sep = ";", fill = "warn")
 
+# set na ####
 
-
+df[df == " "] <- NA
 
 ```
 
@@ -100,11 +103,13 @@ ipa <- lapply(df, function (x) grep("IPA", x, value = T))
 
 ipa <- unlist(ipa)
 
-names(ipa)[grep("pro_opin", names(ipa))] <- "pro_opinion"
+names(ipa)[grep("pro_opin", names(ipa))] <- "opinion_pro"
 
 names(ipa)[grep("empirical_con", names(ipa))] <- "empirical_con"
 
 names(ipa)[grep("critique", names(ipa))] <- "critique_responses"
+
+names(ipa)[grep("empirical_pro", names(ipa))] <- "empirical_pro"
 
 ipa <- split(unname(ipa), names(ipa))
 
@@ -115,13 +120,15 @@ seq.max <- seq_len(max(n.obs))
 ipa <- sapply(ipa, "[", i = seq.max) %>%
   as.data.frame(stringsAsFactors = F) 
 
-# table without cols with few observations
-select(ipa, -c(empirical_con, empirical_pro1)) %>%
-  kable(knitr.kable.NA = "")
+
+# table cols with many observations separately
+kable(ipa$critique_responses, col.names = "critique")
+
+kable(ipa$opinion_pro, col.names = "opinion_pro")
 
 # table cols with few observations
-select(ipa, c(empirical_con, empirical_pro1)) %>%
-  kable(knitr.kable.NA = "")
+select(ipa, c(empirical_con, empirical_pro)) %>%
+  kable()
 
 
 
