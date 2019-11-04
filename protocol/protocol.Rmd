@@ -25,6 +25,14 @@ note <- read_csv("../mini_review/data/analysis_noted.csv")
 
 df <- rbind(note, no_note)
 
+citekey <- read_csv("../mini_review/data/inc_citekeys.csv") %>%
+  select(c("Title", "Citekey"))
+
+colnames(citekey) <- tolower(colnames(citekey))
+
+df <- full_join(df, citekey, by = "title")
+
+
 #########################
 # Separate empirical_pro #### 
 ##################
@@ -35,6 +43,17 @@ nmax <- max(str_count(df$empirical_pro, ";"), na.rm = T) + 1
 
 df <- separate(df, empirical_pro, into = paste0("empirical_pro", seq_len(nmax)), sep = ";", fill = "warn") 
 
+# Transform team members into columns
+
+df <-  gather(df,  key= "num", value = "empirical_pro", contains("empirical_pro"), na.rm = F)
+
+# drop num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
 #########################
 # Separate empirical_con #### 
 ##################
@@ -46,7 +65,17 @@ nmax <- max(str_count(df$empirical_con, ";"), na.rm = T) + 1
 df <- separate(df, empirical_con, into = paste0("empirical_con", seq_len(nmax)), sep = ";", fill = "warn") 
 
 
+# Transform team members into columns
 
+df <-  gather(df,  key= "num", value = "empirical_con", contains("empirical_con"), na.rm = F)
+
+# drop member_num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
 #########################
 # Separate pro_opinion #### 
 ##################
@@ -55,7 +84,17 @@ nmax <- max(str_count(df$pro_opinion, ";"), na.rm = T) + 1
 
 df <- separate(df, pro_opinion, into = paste0("pro_opinion", seq_len(nmax)), sep = ";", fill = "warn") 
 
+# Transform team members into columns
 
+df <-  gather(df,  key= "num", value = "pro_opinion", contains("pro_opinion"), na.rm = F)
+
+# drop member_num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
 #####################
 # separate critique_responses_opintion ###
 #########################
@@ -66,9 +105,17 @@ nmax <- max(str_count(df$critique_responses_opintion, ";"), na.rm = T) + 1
 
 df <- separate(df, critique_responses_opintion, into = paste0("critique_responses", seq_len(nmax)), sep = ";", fill = "warn")
 
-# set na ####
+# Transform team members into columns
 
-df[df == " "] <- NA
+df <-  gather(df,  key= "num", value = "critique_responses", contains("critique_responses"), na.rm = F)
+
+# drop member_num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
 
 ```
 
@@ -90,47 +137,35 @@ Of the 95 articles 17 were editorials, or similar, annoucing that the publishing
 ```{r}
 # number of annoucements
 
-length(grep("announcement_RRs", df$manual_tags))
+length(unique(df$title[grep("announcement_RRs", df$manual_tags)]))
 ```
 
 
 ## Benefits of RRs
 
 ```{r}
-# find everything related to IPA
 
-ipa <- lapply(df, function (x) grep("IPA", x, value = T))
+# tried to write a function but couldn't get it to work even when used separate grep & select column arguments
 
-ipa <- unlist(ipa)
-
-names(ipa)[grep("pro_opin", names(ipa))] <- "opinion_pro"
-
-names(ipa)[grep("empirical_con", names(ipa))] <- "empirical_con"
-
-names(ipa)[grep("critique", names(ipa))] <- "critique_responses"
-
-names(ipa)[grep("empirical_pro", names(ipa))] <- "empirical_pro"
-
-ipa <- split(unname(ipa), names(ipa))
-
-# convert list of unequal lengths to dataframe
-
-n.obs <- sapply(ipa, length)
-seq.max <- seq_len(max(n.obs))
-ipa <- sapply(ipa, "[", i = seq.max) %>%
-  as.data.frame(stringsAsFactors = F) 
-
-
-# table cols with many observations separately
-kable(ipa$critique_responses, col.names = "critique")
-
-kable(ipa$opinion_pro, col.names = "opinion_pro")
-
-# table cols with few observations
-select(ipa, c(empirical_con, empirical_pro)) %>%
+df[grep("IPA", df[, "empirical_pro"], ignore.case = T), ] %>%
+  select(c(citekey, empirical_pro)) %>%
+  .[!duplicated(.), ]%>%
   kable()
 
+df[grep("IPA", df$empirical_con, ignore.case = T), ] %>%
+  select(c(citekey, empirical_con)) %>%
+  .[!duplicated(.), ]%>%
+  kable()
 
+df[grep("IPA", df$pro_opinion, ignore.case = T), ] %>%
+  select(c(citekey, pro_opinion)) %>%
+  .[!duplicated(.), ]%>%
+  kable()
+
+df[grep("IPA", df$critique_responses, ignore.case = T), ] %>%
+  select(c(citekey, critique_responses)) %>%
+  .[!duplicated(.), ]%>%
+  kable()
 
 ```
 
