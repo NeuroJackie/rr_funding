@@ -1,30 +1,185 @@
 ---
 title: "Project protocol"
 subtitle: "Registered reports funding models: a feasibility study"
-author: "Christopher Chambers, Katie Drax,  Marcus Munafò and Jacqueline Thompson"
+author: "Christopher Chambers, Katie Drax,  Marcus Munaf&ograve; and Jacqueline Thompson"
 date: "November 2019"
-output: word_document
+output: html_document
 csl: apa.csl
 bibliography: rr_library.bib
 ---
 
+```{r setup, include=F} 
+knitr::opts_chunk$set(echo = F)
+
+library(tidyverse)
+library(knitr)
+
+### 
+# import data ####
+#####
+
+no_note <- read_csv("../mini_review/data/analysis_not_noted.csv")
+note <- read_csv("../mini_review/data/analysis_noted.csv")
+
+df <- rbind(note, no_note)
+
+#########################
+# Separate empirical_pro #### 
+##################
+
+# separate
+
+nmax <- max(str_count(df$empirical_pro, ";"), na.rm = T) + 1
+
+df <- separate(df, empirical_pro, into = paste0("empirical_pro", seq_len(nmax)), sep = ";", fill = "warn") 
+
+#########################
+# Separate empirical_con #### 
+##################
+
+# separate
+
+nmax <- max(str_count(df$empirical_con, ";"), na.rm = T) + 1
+
+df <- separate(df, empirical_con, into = paste0("empirical_con", seq_len(nmax)), sep = ";", fill = "warn") 
+
+
+
+#########################
+# Separate pro_opinion #### 
+##################
+
+nmax <- max(str_count(df$pro_opinion, ";"), na.rm = T) + 1
+
+df <- separate(df, pro_opinion, into = paste0("pro_opinion", seq_len(nmax)), sep = ";", fill = "warn") 
+
+
+#####################
+# separate critique_responses_opintion ###
+#########################
+
+# separate critique_responses_opintion (correct mispelling in separed cols)
+
+nmax <- max(str_count(df$critique_responses_opintion, ";"), na.rm = T) + 1
+
+df <- separate(df, critique_responses_opintion, into = paste0("critique_responses", seq_len(nmax)), sep = ";", fill = "warn")
+
+
+
+
+```
+
+
 # Background
 
-# Rationale for research question
+Registered Reports (RRs) are a research report format where submissions undergo a two-stage peer-review process, once before data collection and once after. Manuscripts that pass the first review cannot be rejected based on any outcomes observed in the second. To date, 206 journals offer RRs (https://cos.io/rr/).  
+
+## Review of RR literature
+
+To further our understanding of RRs, namely the potential benefits and concerns related to them, KD performed a semi-systematic review of the literature. She searched Scopus for articles that contained "registered reports" in any field, yielding 220 results. The results were exported to Zotero and screened. Results were excluded if their meta-data contained no doi, if a full text could not be retrieved or if the main text of the article contained no reference to RRs. 94 results were included but upon reading the articles Upon reading the articles retrieved from Scopus KD identified an article (@chambers2014) that was repeatedly referenced but was not retrieved by the search. Since the article appeared to be important to the discussion of RRs it was included in the review giving a total of 95 articles. 
+
+KD read all 95 articles and extracted text containing references to RRs and noted reported benefits and concerns about RRs. If the number of references were deemed to numerous to extract the entire article was read to identify benefits and concerns. KD made notes summarising the reported benefits and concerns in each article. A summary of the notes is given below.
+
+## Description of sample
+
+Of the 95 articles 17 were editorials, or similar, annoucing that the publishing journal now offered RRs. 
+
+```{r}
+# number of annoucements
+
+length(grep("announcement_RRs", df$manual_tags))
+```
+
+
+## Benefits of RRs
+
+```{r}
+# find everything related to IPA
+
+ipa <- lapply(df, function (x) grep("IPA", x, value = T))
+
+ipa <- unlist(ipa)
+
+names(ipa)[grep("pro_opin", names(ipa))] <- "pro_opinion"
+
+names(ipa)[grep("empirical_con", names(ipa))] <- "empirical_con"
+
+names(ipa)[grep("critique", names(ipa))] <- "critique_responses"
+
+ipa <- split(unname(ipa), names(ipa))
+
+# convert list of unequal lengths to dataframe
+
+n.obs <- sapply(ipa, length)
+seq.max <- seq_len(max(n.obs))
+ipa <- sapply(ipa, "[", i = seq.max) %>%
+  as.data.frame(stringsAsFactors = F) 
+
+# table without cols with few observations
+select(ipa, -c(empirical_con, empirical_pro1)) %>%
+  kable(knitr.kable.NA = "")
+
+# table cols with few observations
+select(ipa, c(empirical_con, empirical_pro1)) %>%
+  kable(knitr.kable.NA = "")
+
+
+
+```
+
+## Concerns about RRs
+
+## RR journal-funder partnerships
+
+Six funders have formed 'partnerships' with RR journals. None of these partnership models are identical but they all involve a funder and a journal collaborating to streamline the transition from funding application to journal submission. 
+
+# Rationale for study
+
+Funders or jo
+
+# Study objectives and research questions
+
+The objective of study is to establish the feasibility of a randomised control trial (RCT) to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
+
+To achieve this objective our study will investigate the following research questions related to design and delivery of the intervention and future RCT:
+1. What are the characteristics of existing partnerships models?
+2. What partnership model offers the most benefit to all stakeholders (editors, reviewers, funders, authors, researchers)?
+3. What partnership model is the most acceptable to all users (editors, reviewers funders and authors)?
+4. How might implementation of a partnership model vary?
+1. How could participants be recruited?
+2. What positive effects might participants experience?
+3. What unintended effects might participation experience?
+2. What outcomes that indicate benefit to all stakeholders (editors, reviewers, funders, authors, researchers) can be collected?
+
+
 
 # Design
 
-# Objectives
 
-# Project site
 
-# Sampling procedure
+2. What is the experience of stakeholders in existing partnerships? This will include their views on their model's:
+* potential improvements
+* feasibility of improvements
+* strengths
+* weaknesses 
+* suitability for different research types
+* suitability for different funders
+* impact on research quality 
+* impact on manuscript quality
+* well-being
+* efficiency of research process (i.e. from idea conception to publication)
+* impact on funders reputation
+* impact on researcher's career prospects
+
+# Study site
+
+# Participants and recruitment
 
 ## Inclusion criteria
 
 ## Sample size determination
 
-# Project measures
+# Measures
 
 # Materials
 
@@ -32,43 +187,55 @@ bibliography: rr_library.bib
 
 # Analysis plan
 
+## Thematic analysis
+
+[highlighting, examining & recording patterns in data (coding)]
+
+## Data saturation
+
+[assessing & reporting]
+
+
 # Ethical Considerations and Informed Consent
 
-Ethics approval for the project was obtained from the Faculty of Science Research Ethics Committee at the University of Bristol (approval code: [insert once given]). 
-
-[targ template for qualitative work]
+Ethics approval has been/will be obtained from the School of Psychological Science Research Ethics Committee  at the University of Bristol (Approval Code: [insert once given] ).  The study will be conducted according to the revised Declaration of Helsinki  (2013) and the 1996 ICH Guidelines for Good Clinical Practice E6(R1). The investigator will explain the nature, purpose and risks of the study to the participant. The interviewee will receive the information sheet in advance of the study session. There will be no time restriction on how long interviewees take to respond. Therefore, interviewees will be given sufficient time to read the information, consider any implications, and raise any questions with the investigators prior to making a decision to participate. At the start of the study session interviewees will be given the opportunity to read the information sheet again and ask the investigator questions. Written consent will then be obtained. Interviewees will be informed that they are free to withdraw at any time.
 
 # Safety
  
-There are no expected hazards, due to the project taking place entirely online.
+There are no expected hazards, due to the study consisting of an interview of non-vulnerable people that includes no personal or sensitive questions.
 
 # Data Management
 
-All aspects of the Data Protection Act will be adhered to. All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF.
+All aspects of the Data Protection Act will be adhered to. Consent forms will be retained by the School of Psychological Science for a period of 10 years after study completion. All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF.
 
 ## Anonymised project data
 
-All project data will be anonymised using a unique numeric identifier. Original computer data files will be backed up on a secured University of Bristol network drive. At the end of the project, electronic project data (including finalised data sheet) will be transferred to a designated University of Bristol Research Data Storage Facility for long-term archiving. Project data will be kept for a minimum of 15 years. At the appropriate time the data sheet will be locked and made open using the University of Bristol Research Data Repository.
+[EDIT: Case report forms (CRFs) and electronic data will be anonymised by a unique numeric identifier. CRFs will be stored in a locked office. All data requested on the CRF will be recorded. All missing data will be explained. If any entry errors are made, a single straight line will be drawn through the incorrect entry and the correct data entered above it; to correct such an error. All such changes will be initialed and dated. Once data from CRFs have been inputted into a data spreadsheet they will undergo a reliability check (20% check by independent researcher). If an error rate greater than 1% is obtained the data will be re-inputted in full and assessed again. After the data have been positively assessed, the CRFs will be destroyed in the Schoolâ€™s confidential waste facility .
 
-## Screening documents and participant contact details
+Original computer data files will be backed up on a secured University of Bristol network drive. At the end of the study, electronic study data (including finalised data sheet) will be transferred to a designated University of Bristol Research Data Storage Facility for long-term archiving. Study data will be kept for a minimum of 15  years. At the appropriate time the data sheet will be locked and made open using the University of Bristol Research Data Repository .]
 
-Participant contact details and personal details will be kept confidential. These will be kept for a year after project completion or until data are made open (whichever comes first), after which these documents will be destroyed. 
+
+## Participant contact details
+
+Respondent contact details and respondent identifier logs will be stored on password protected university computers and kept confidential. These will be kept for one year after study completion or until data are made open (whichever comes first), after which these documents will be destroyed
 
 ## Revoked data
 
-If a participant decides that they do not want their data used after their participation they have the right to request that the data are withdrawn. They can request this up until the project is complete. Once the project is complete, they will be assigned a unique ID number. As participants are not aware of their unique ID number researchers will have no way to connect them with their data to revoke it. Participants will be informed of this before taking part in the project. 
+If a participant decides that they do not want their data used after their participation they have the right to request that the data are withdrawn. They can request this up to one year after study completion or until the data are made open (whichever comes first).
 
 # Quality Control and Quality Assurance
  
-The investigators will be responsible for data quality, which will be monitored in-house.
- 
+[EDIT: The investigators will be responsible for data quality. After approximately 10% of data collection has been completed, the study will undergo an in-house quality assessment. During this monitoring process all CRFs and study documents will be assessed as well as the investigators laboratory management and participant engagement, and corrected where necessary.
+
+Post-study checks will be conducted on data entry by an independent researcher. This researcher will re-enter 20% of hardcopy participant data. A threshold of 1% will be used, whereby error rates greater than 1% will require the data to be re-entered. A 100% check will be made on allocation to test condition.]
+
 # Insurance
 
-This project will be sponsored by the University of Bristol. The University has Public Liability Insurance to cover the liability of the University to research participants. In the event that something goes wrong and a participant is harmed during the research project there are no special compensation arrangements. If a participant is harmed and this is due to someone's negligence then they may have grounds for a legal action for compensation against Bristol University or one of the other parties to the research, but they may have to pay their own legal costs.
- 
+This study will be sponsored by the University of Bristol . The University has Public Liability Insurance to cover the liability of the University to research participants. In the event that something goes wrong and a participant is harmed during the research study there are no special compensation arrangements. If a participant is harmed and this is due to someone's negligence then they may have grounds for a legal action for compensation against Bristol University or one of the other parties to the research, but they may have to pay their own legal costs.
+
 # Publication Policy
  
-The findings from this research project may be published in an appropriate scientific journal (and made available open access), and/or presented at an appropriate meeting. 
+The findings from this research study may be published in an appropriate scientific journal (and made available open access), and/or presented at an appropriate meeting. Study data will be collected and held by the study investigators. The data will be made available for sharing via a University of Bristol online data repository.
 
 # Project personnel
 
@@ -78,7 +245,7 @@ School of Psychological Science
 Bristol, BS8 1TU
 katie.drax@bristol.ac.uk 
 
-Marcus Munafò
+Marcus Munaf&ograve;
 School of Psychological Science 
 12a Priory Road
 Bristol, BS8 1TU
