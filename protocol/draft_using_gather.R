@@ -1,3 +1,9 @@
+
+library(tidyverse)
+library(knitr)
+
+options(knitr.kable.NA = "")
+
 ### 
 # import data ####
 #####
@@ -90,3 +96,12 @@ df$num <- NULL
 # remove duplicated rows
 
 df <- df[!duplicated(df), ]
+
+ipa_emp_pro <- df[grep("IPA", df$empirical_pro, ignore.case = T), ] 
+
+apply(df, 1, function(x)as.integer(any(grep("IPA",x))))
+
+n.obs <- sapply(ipa, length)
+seq.max <- seq_len(max(n.obs))
+ipa <- sapply(ipa, "[", i = seq.max) %>%
+  as.data.frame(stringsAsFactors = F) 
