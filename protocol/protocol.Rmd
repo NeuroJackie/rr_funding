@@ -145,27 +145,18 @@ length(unique(df$title[grep("announcement_RRs", df$manual_tags)]))
 
 ```{r}
 
-# tried to write a function but couldn't get it to work even when used separate grep & select column arguments
-
-df[grep("IPA", df[, "empirical_pro"], ignore.case = T), ] %>%
-  select(c(citekey, empirical_pro)) %>%
-  .[!duplicated(.), ]%>%
+funct <-function(pattern, grep_col, col) {
+  df[grep(pattern, grep_col, ignore.case = T), ] %>%
+  select(c("citekey", col)) %>%
+  .[!duplicated(.), ] %>%
   kable()
+}
 
-df[grep("IPA", df$empirical_con, ignore.case = T), ] %>%
-  select(c(citekey, empirical_con)) %>%
-  .[!duplicated(.), ]%>%
-  kable()
+funct("IPA", df$empirical_pro, "empirical_pro")
+funct("IPA", df$empirical_con, "empirical_con")
+funct("IPA", df$pro_opinion, "pro_opinion")
+funct("IPA", df$critique_responses, "critique_responses")
 
-df[grep("IPA", df$pro_opinion, ignore.case = T), ] %>%
-  select(c(citekey, pro_opinion)) %>%
-  .[!duplicated(.), ]%>%
-  kable()
-
-df[grep("IPA", df$critique_responses, ignore.case = T), ] %>%
-  select(c(citekey, critique_responses)) %>%
-  .[!duplicated(.), ]%>%
-  kable()
 
 ```
 
