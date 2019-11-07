@@ -2,16 +2,22 @@
 title: "Interpretation"
 author: "Katie Drax"
 date: "7 November 2019"
-output: word_document
+output: 
+  pdf_document:
+    latex_engine: pdflatex
+    number_sections: true
+    fig_caption: true
 ---
 
 ```{r setup, include=F} 
 knitr::opts_chunk$set(echo = F)
+knitr::opts_chunk$set(comment = NA)
 
 library(tidyverse)
 library(knitr)
+library(pander)
 
-options(knitr.kable.NA = "")
+#replace pandoc_table(...) with kable() if exporting word document
 
 ### 
 # import data ####
@@ -133,8 +139,14 @@ funct <-function(pattern, grep_col, col) {
     select(c("citekey", col)) %>%
     .[!duplicated(.), ] %>% 
     arrange(citekey) %>%
-    kable()
+    pandoc.table(split.cell= 80, split.table = Inf)
 }
+
+word_count <-function(x, input) {
+  unnest_tokens(test, word, input)%>%
+    anti_join(stop_words)%>%
+    count(word, sort = T)
+  }
 
 ```
 
@@ -142,6 +154,8 @@ funct <-function(pattern, grep_col, col) {
 
 ```{r}
 funct("ipa", df$opinion_pro, "opinion_pro")
+
+
 ```
 
 #IPA cons & buts
@@ -180,7 +194,7 @@ neg_funct <-function(pattern, grep_col, col) {
     .[!duplicated(.), ] %>% 
     .[complete.cases(.), ] %>%
     arrange(citekey) %>%
-    kable()
+    pandoc.table(split.cell= 80, split.table = Inf)
 }
 
 ```
