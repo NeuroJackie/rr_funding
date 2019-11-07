@@ -1,0 +1,221 @@
+---
+title: "Interpretation"
+author: "Katie Drax"
+date: "7 November 2019"
+output: word_document
+---
+
+```{r setup, include=F} 
+knitr::opts_chunk$set(echo = F)
+
+library(tidyverse)
+library(knitr)
+
+options(knitr.kable.NA = "")
+
+### 
+# import data ####
+#####
+
+no_note <- read_csv("../mini_review/data/analysis_not_noted.csv", trim_ws = T)
+note <- read_csv("../mini_review/data/analysis_noted.csv", trim_ws = T)
+
+df <- rbind(note, no_note)
+
+citekey <- read_csv("../mini_review/data/inc_citekeys.csv") %>%
+  select(c("Title", "Citekey"))
+
+colnames(citekey) <- tolower(colnames(citekey))
+
+df <- full_join(df, citekey, by = "title")
+
+
+#########################
+# Separate empirical_pro #### 
+##################
+
+# separate
+
+nmax <- max(str_count(df$empirical_pro, ";"), na.rm = T) + 1
+
+df <- separate(df, empirical_pro, into = paste0("empirical_pro", seq_len(nmax)), sep = ";", fill = "warn") 
+
+# Transform team members into columns
+
+df <-  gather(df,  key= "num", value = "empirical_pro", contains("empirical_pro"), na.rm = F)
+
+# drop num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
+#########################
+# Separate empirical_con #### 
+##################
+
+# separate
+
+nmax <- max(str_count(df$empirical_con, ";"), na.rm = T) + 1
+
+df <- separate(df, empirical_con, into = paste0("empirical_con", seq_len(nmax)), sep = ";", fill = "warn") 
+
+
+# Transform team members into columns
+
+df <-  gather(df,  key= "num", value = "empirical_con", contains("empirical_con"), na.rm = F)
+
+# drop member_num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
+#########################
+# Separate opinion_pro #### 
+##################
+
+nmax <- max(str_count(df$opinion_pro, ";"), na.rm = T) + 1
+
+df <- separate(df, opinion_pro, into = paste0("opinion_pro", seq_len(nmax)), sep = ";", fill = "warn") 
+
+# Transform team members into columns
+
+df <-  gather(df,  key= "num", value = "opinion_pro", contains("opinion_pro"), na.rm = F)
+
+# drop member_num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
+#####################
+# separate  ###
+#########################
+
+# separate opinion_con_buts (correct mispelling in separed cols)
+
+nmax <- max(str_count(df$opinion_con_buts, ";"), na.rm = T) + 1
+
+df <- separate(df, opinion_con_buts, into = paste0("opinion_con_buts", seq_len(nmax)), sep = ";", fill = "warn")
+
+# Transform team members into columns
+
+df <-  gather(df,  key= "num", value = "opinion_con_buts", contains("opinion_con_buts"), na.rm = F)
+
+# drop member_num col
+
+df$num <- NULL
+
+# remove duplicated rows
+
+df <- df[!duplicated(df), ]
+
+# trim whitespace
+
+df <- lapply(df, function(x) gsub("[^\u0001-\u007F]+", "",x)) %>%
+  lapply(function(x) gsub("\t\n\r\v\f", "",x)) %>%
+  as.data.frame(stringsAsFactors = F)
+
+# relabel NAs
+
+df[df == c(" ", "")] <- NA
+
+################
+# function for positive grep ####
+#################
+
+funct <-function(pattern, grep_col, col) {
+  df[grepl(pattern, grep_col, ignore.case = T), ] %>%
+    select(c("citekey", col)) %>%
+    .[!duplicated(.), ] %>% 
+    arrange(citekey) %>%
+    kable()
+}
+
+```
+
+# IPA benefits
+
+```{r}
+funct("ipa", df$opinion_pro, "opinion_pro")
+```
+
+#IPA cons & buts
+
+```{r}
+funct("ipa", df$opinion_con_buts, "opinion_con_buts")
+
+
+```
+
+# Benefits of pre-study review
+
+```{r}
+
+funct("pre-study|feedback", df$opinion_pro, "opinion_pro")
+
+```
+
+# Cons & buts pre-study review
+
+```{r}
+funct("pre-study|feedback", df$opinion_con_buts, "opinion_con_buts")
+
+```
+
+
+```{r}
+
+##############
+#### negative grep function #####
+###################
+
+neg_funct <-function(pattern, grep_col, col) {
+  df[!grepl(pattern, grep_col, ignore.case = T), ] %>%
+    select(c("citekey", col)) %>%
+    .[!duplicated(.), ] %>% 
+    .[complete.cases(.), ] %>%
+    arrange(citekey) %>%
+    kable()
+}
+
+```
+
+# Other pros
+
+```{r}
+neg_funct("ipa|feedback|pre-study", df$opinion_pro, "opinion_pro")
+```
+
+# Other cons & buts
+
+```{r}
+neg_funct("ipa|feedback|pre-study", df$opinion_con_buts, "opinion_con_buts")
+```
+
+# Empirical evidence IPA
+
+```{r}
+
+funct("ipa", df$empirical_pro, "empirical_pro")
+funct("ipa", df$empirical_con, "empirical_con")
+```
+
+# Empirical evidence pre-study review
+
+```{r}
+funct("pre-study|feedback", df$empirical_pro, "empirical_pro")
+funct("pre-study|feedback", df$empirical_con, "empirical_con")
+```
+
+# Empirical evidence other
+
+```{r}
+neg_funct("ipa|feedback|pre-study", df$empirical_pro, "empirical_pro")
+neg_funct("ipa|feedback|pre-study", df$empirical_con, "empirical_con")
+
+```
