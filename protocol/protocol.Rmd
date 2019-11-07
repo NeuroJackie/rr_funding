@@ -3,7 +3,7 @@ title: "Project protocol"
 subtitle: "Registered reports funding models: a feasibility study"
 author: "Christopher Chambers, Katie Drax,  Marcus Munaf&ograve; and Jacqueline Thompson"
 date: "November 2019"
-output: html_document
+output: word_document
 csl: apa.csl
 bibliography: rr_library.bib
 ---
@@ -20,8 +20,8 @@ options(knitr.kable.NA = "")
 # import data ####
 #####
 
-no_note <- read_csv("../mini_review/data/analysis_not_noted.csv")
-note <- read_csv("../mini_review/data/analysis_noted.csv")
+no_note <- read_csv("../mini_review/data/analysis_not_noted.csv", trim_ws = T)
+note <- read_csv("../mini_review/data/analysis_noted.csv", trim_ws = T)
 
 df <- rbind(note, no_note)
 
@@ -77,16 +77,16 @@ df$num <- NULL
 
 df <- df[!duplicated(df), ]
 #########################
-# Separate pro_opinion #### 
+# Separate opinion_pro #### 
 ##################
 
-nmax <- max(str_count(df$pro_opinion, ";"), na.rm = T) + 1
+nmax <- max(str_count(df$opinion_pro, ";"), na.rm = T) + 1
 
-df <- separate(df, pro_opinion, into = paste0("pro_opinion", seq_len(nmax)), sep = ";", fill = "warn") 
+df <- separate(df, opinion_pro, into = paste0("opinion_pro", seq_len(nmax)), sep = ";", fill = "warn") 
 
 # Transform team members into columns
 
-df <-  gather(df,  key= "num", value = "pro_opinion", contains("pro_opinion"), na.rm = F)
+df <-  gather(df,  key= "num", value = "opinion_pro", contains("opinion_pro"), na.rm = F)
 
 # drop member_num col
 
@@ -96,18 +96,18 @@ df$num <- NULL
 
 df <- df[!duplicated(df), ]
 #####################
-# separate critique_responses_opintion ###
+# separate  ###
 #########################
 
-# separate critique_responses_opintion (correct mispelling in separed cols)
+# separate opinion_con_buts (correct mispelling in separed cols)
 
-nmax <- max(str_count(df$critique_responses_opintion, ";"), na.rm = T) + 1
+nmax <- max(str_count(df$opinion_con_buts, ";"), na.rm = T) + 1
 
-df <- separate(df, critique_responses_opintion, into = paste0("critique_responses", seq_len(nmax)), sep = ";", fill = "warn")
+df <- separate(df, opinion_con_buts, into = paste0("opinion_con_buts", seq_len(nmax)), sep = ";", fill = "warn")
 
 # Transform team members into columns
 
-df <-  gather(df,  key= "num", value = "critique_responses", contains("critique_responses"), na.rm = F)
+df <-  gather(df,  key= "num", value = "opinion_con_buts", contains("opinion_con_buts"), na.rm = F)
 
 # drop member_num col
 
@@ -117,6 +117,15 @@ df$num <- NULL
 
 df <- df[!duplicated(df), ]
 
+# trim whitespace
+
+df <- lapply(df, function(x) gsub("[^\u0001-\u007F]+", "",x)) %>%
+  lapply(function(x) gsub("\t\n\r\v\f", "",x)) %>%
+  as.data.frame(stringsAsFactors = F)
+
+# relabel NAs
+
+df[df == c(" ", "")] <- NA
 ```
 
 
@@ -141,26 +150,56 @@ length(unique(df$title[grep("announcement_RRs", df$manual_tags)]))
 ```
 
 
-## Benefits of RRs
+## IPA
 
 ```{r}
 
 funct <-function(pattern, grep_col, col) {
-  df[grep(pattern, grep_col, ignore.case = T), ] %>%
-  select(c("citekey", col)) %>%
-  .[!duplicated(.), ] %>%
-  kable()
+  df[grepl(pattern, grep_col, ignore.case = T), ] %>%
+    select(c("citekey", col)) %>%
+    .[!duplicated(.), ] %>% 
+    arrange(citekey) %>%
+    kable()
 }
 
-funct("IPA", df$empirical_pro, "empirical_pro")
-funct("IPA", df$empirical_con, "empirical_con")
-funct("IPA", df$pro_opinion, "pro_opinion")
-funct("IPA", df$critique_responses, "critique_responses")
+funct("ipa", df$empirical_pro, "empirical_pro")
+funct("ipa", df$empirical_con, "empirical_con")
+funct("ipa", df$opinion_pro, "opinion_pro")
+funct("ipa", df$opinion_con_buts, "opinion_con_buts")
 
 
 ```
 
-## Concerns about RRs
+## pre-study review
+
+```{r}
+
+funct("pre-study|feedback", df$empirical_pro, "empirical_pro")
+funct("pre-study|feedback", df$empirical_con, "empirical_con")
+funct("pre-study|feedback", df$opinion_pro, "opinion_pro")
+funct("pre-study|feedback", df$opinion_con_buts, "opinion_con_buts")
+
+```
+
+# other benefits of RRs
+
+```{r}
+
+neg_funct <-function(pattern, grep_col, col) {
+  df[!grepl(pattern, grep_col, ignore.case = T), ] %>%
+    select(c("citekey", col)) %>%
+    .[!duplicated(.), ] %>% 
+    .[complete.cases(.), ] %>%
+    arrange(citekey) %>%
+    kable()
+}
+
+
+neg_funct("ipa|feedback|pre-study", df$empirical_pro, "empirical_pro")
+neg_funct("ipa|feedback|pre-study", df$empirical_con, "empirical_con")
+neg_funct("ipa|feedback|pre-study", df$opinion_pro, "opinion_pro")
+neg_funct("ipa|feedback|pre-study", df$opinion_con_buts, "opinion_con_buts")
+```
 
 ## RR journal-funder partnerships
 
