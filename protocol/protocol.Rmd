@@ -135,9 +135,9 @@ Registered Reports (RRs) are a research report format where submissions undergo 
 
 ## Review of RR literature
 
-To further our understanding of RRs, namely the potential benefits and concerns related to them, KD performed a semi-systematic review of the literature. She searched Scopus for articles that contained "registered reports" in any field, yielding 220 results. The results were exported to Zotero and screened. Results were excluded if their meta-data contained no doi, if a full text could not be retrieved or if the main text of the article contained no reference to RRs. 94 results were included but upon reading the articles Upon reading the articles retrieved from Scopus KD identified an article (@chambers2014) that was repeatedly referenced but was not retrieved by the search. Since the article appeared to be important to the discussion of RRs it was included in the review giving a total of 95 articles. 
+To further our understanding of RRs, namely the potential benefits and concerns related to them, KD performed a semi-systematic review of the literature. She searched Scopus for articles that contained "registered reports" in any field, yielding 220 results. The results were exported to Zotero and screened. Results were excluded if their meta-data contained no doi, if a full text could not be retrieved or if the main text of the article contained no reference to RRs. 94 results were included but upon reading the articles Upon reading the articles retrieved from Scopus KD identified an article (@chambers2014) that was repeatedly referenced but was not retrieved by the search. Since the article appeared to be important to the discussion of RRs it was included in the review giving a total of 93 articles. 
 
-KD read all 95 articles and extracted text containing references to RRs and noted reported benefits and concerns about RRs. If the number of references were deemed to numerous to extract the entire article was read to identify benefits and concerns. KD made notes summarising the reported benefits and concerns in each article. A summary of the notes is given below.
+KD read all 93 articles and extracted text containing references to RRs and noted reported benefits and concerns about RRs. If the number of references were deemed to numerous to extract the entire article was read to identify benefits and concerns. KD made notes summarising the reported benefits and concerns in each article. A summary of the notes is given below.
 
 ## Description of sample
 
@@ -147,58 +147,6 @@ Of the 95 articles 17 were editorials, or similar, annoucing that the publishing
 # number of annoucements
 
 length(unique(df$title[grep("announcement_RRs", df$manual_tags)]))
-```
-
-
-## IPA
-
-```{r}
-
-funct <-function(pattern, grep_col, col) {
-  df[grepl(pattern, grep_col, ignore.case = T), ] %>%
-    select(c("citekey", col)) %>%
-    .[!duplicated(.), ] %>% 
-    arrange(citekey) %>%
-    kable()
-}
-
-funct("ipa", df$empirical_pro, "empirical_pro")
-funct("ipa", df$empirical_con, "empirical_con")
-funct("ipa", df$opinion_pro, "opinion_pro")
-funct("ipa", df$opinion_con_buts, "opinion_con_buts")
-
-
-```
-
-## pre-study review
-
-```{r}
-
-funct("pre-study|feedback", df$empirical_pro, "empirical_pro")
-funct("pre-study|feedback", df$empirical_con, "empirical_con")
-funct("pre-study|feedback", df$opinion_pro, "opinion_pro")
-funct("pre-study|feedback", df$opinion_con_buts, "opinion_con_buts")
-
-```
-
-# other benefits of RRs
-
-```{r}
-
-neg_funct <-function(pattern, grep_col, col) {
-  df[!grepl(pattern, grep_col, ignore.case = T), ] %>%
-    select(c("citekey", col)) %>%
-    .[!duplicated(.), ] %>% 
-    .[complete.cases(.), ] %>%
-    arrange(citekey) %>%
-    kable()
-}
-
-
-neg_funct("ipa|feedback|pre-study", df$empirical_pro, "empirical_pro")
-neg_funct("ipa|feedback|pre-study", df$empirical_con, "empirical_con")
-neg_funct("ipa|feedback|pre-study", df$opinion_pro, "opinion_pro")
-neg_funct("ipa|feedback|pre-study", df$opinion_con_buts, "opinion_con_buts")
 ```
 
 ## RR journal-funder partnerships
