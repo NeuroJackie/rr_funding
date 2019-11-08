@@ -3,7 +3,7 @@ title: "Project protocol"
 subtitle: "Registered reports funding models: a feasibility study"
 author: "Christopher Chambers, Katie Drax,  Marcus Munaf&ograve; and Jacqueline Thompson"
 date: "November 2019"
-output: word_document
+output: pdf_document
 csl: apa.csl
 bibliography: rr_library.bib
 ---
@@ -133,11 +133,22 @@ df[df == c(" ", "")] <- NA
 
 # Background
 
-Registered Reports (RRs) are a research report format where submissions undergo a two-stage peer-review process, once before data collection when a protocol containing the Introduction and Methods sections are reviewed and once after, when the complete manuscript is reviewed and adherence to the stage one submission is checked. Protocols that pass stage one are granted in-principle acceptance (IPA) meaning they cannot be rejected based on any outcomes observed in the stage two. These two components, pre-study review and IPA are what define an RR. To date, 206 journals offer RRs (https://cos.io/rr/). Detailed discussion of the potential benefits and limitations of RRs can be found in several articles including @grand2018, @vantveer2016, @parker2019, @chambers2014 and @marsden2018a. These non-empirical articles lay out the theoretical impacts that logically follow from offering or authoring RRs. For example that peer-review before data collection could improve study designs or that IPA reduces publication bias for certain results. The acceptability of RRs is also clear from the speed of uptake by journals. However there is minimial empirical evidence that these theoretical impacts are realised in practice. 
+## Registered reports
 
-Like any intervention the success of RRs will be partly dependent on the quality of their implementation. @hardwicke2018  surveyed 145 stage one and stage two RRs, of which 43% had not shared their IPA, privately or publicly, and only 24% of these gave a reason why. Shared protocols were done so sub-optimally. [insert]. Another issue is terminology. Of the 54 completed and published RRs half were clearly labelled as an RR. Similar to the confusion between 'registration' and 'pre-registration' [insert citation] a qualitative survey indicates editorial board members can be confused about what RRs are (@woznyj2018)[check].As the number of RR journals increases it become more important to understand how to ensure the quality of their implementation at a large scale. Among other things this will allow precise evaluations of impact of RRs as a whole, otheriwse large variation in implementation will make evlauations noisy or ungeneralisable. 
+Registered reports (RRs) are a research report format where submissions undergo a two-stage peer-review process, once before data collection when a protocol containing the Introduction and Methods sections are reviewed and once after, when the complete manuscript is reviewed and adherence to the stage one submission is checked. 
+Protocols that pass stage one are granted in-principle acceptance (IPA) meaning they cannot be rejected based on any outcomes observed in the stage two.
+These two components, pre-study review and IPA are what define an RR. To date, 206 journals offer RRs (https://cos.io/rr/). Detailed discussion of the potential benefits and limitations of RRs can be found in several articles including @grand2018, @vantveer2016, @parker2019, @chambers2014 and @marsden2018a. 
+These non-empirical articles lay out the theoretical impacts that logically follow from offering or authoring RRs. 
+For example that peer-review before data collection could improve study designs or that IPA reduces publication bias for certain results. 
+The acceptability of RRs is also clear from the speed of uptake by journals. 
+However there is minimial empirical evidence that these theoretical impacts are realised in practice. 
 
-Despite the lack of evidence for RRs efficacy research funders have already begun 'upgrading' the format. Six funders have formed 'partnerships' with RR journals. None of these partnership models are identical but they all involve a funder and a journal collaborating to streamline the transition from funding application to journal submission. 
+Like any intervention the success of RRs will be partly dependent on the quality of their implementation. @hardwicke2018  surveyed 145 stage one and stage two RRs, of which 43% had not shared their IPA, privately or publicly, and only 24% of these gave a reason why. 
+Shared protocols were done so sub-optimally. 
+[insert].
+Another issue is terminology. Of the 54 completed and published RRs half were clearly labelled as an RR. 
+Similar to the confusion between 'registration' and 'pre-registration' @rice2019 a qualitative survey indicates editorial board members can be confused about what RRs are (@woznyj2018)[check].
+
 
 ```{r}
 library(httr)
@@ -160,31 +171,65 @@ freq(osf$identifiesAsRR)
 
 freq(osf$registered)
 ```
+
+As the number of RR journals increases it become more important to understand how to ensure the quality of their implementation at a large scale. 
+Among other things this will allow precise evaluations of impact of RRs as a whole, otheriwse large variation in implementation will make evlauations noisy or ungeneralisable. 
+
+## Funder-RR journal partnerships
+
+Despite the lack of evidence for RRs efficacy research funders are extending the new format. 
+Six funders are currently in 'partnerships' with RR journals. Though none of the funder-RR partnerships are identical they all involve one funder and one RR journal collaborating to streamline the transition from funding application to journal publication. The six existing partnerships are listed below:
+
+* The Flu Lab, PLOS, and the Center for Open Science (https://cos.io/our-services/research/flulab/)
+* Cancer Research UK and Nicotine & Tobacco Research journal (@munafo2017)
+* Global Research Awards for Nicotine Dependence and Nicotine & Tobacco Research journal (http://www.grandawardsprogram.org/news/news-and-announcements.html)
+* Children's Tumor Foundation and PLOS ONE (https://blogs.plos.org/everyone/2017/09/26/registered-reports-with-ctf/)
+* The Association for Politics & The Life Sciences and Politics and the Life Sciences journal (https://www.cambridge.org/core/journals/politics-and-the-life-sciences/information/call-for-papers-psychophysiology-cognition-and-political-differences)
+* Prostate Cancer Foundation - Movember Foundation Reproducibility Initiative and PeerJ journal (https://osf.io/ih9qt/wiki/home/)
+* Language Learning Early Career Research Grant Program and Language Learning journal (https://onlinelibrary.wiley.com/page/journal/14679922/homepage/grant_programs.htm)
+
+Previously the Center for Open Science funded RRs of replication studie submitted to Perspectives on Psychological Science journal (https://www.psychologicalscience.org/observer/aps-replication-initiative-underway) but the partnership has now finished.
+
+Early proposals of funder-RR partnerships from @marcus2017a and the Center for Open Science (https://web.archive.org/web/20170202152633/https://cos.io/rr/), suggested that authors submit a detailed procotol before the research is funded. 
+The protocol is then simultaneously reviewed by a funder and a journal. 
+Successful submissions receive funding from the funder and IPA  from the journal, potentially on the same day. 
+Another option is a staggered review process whereby a funder receives a conventional grant application and successful applications are invited to submit a stage one protocol to the partnering journal, or possibly journals. 
+None of the six partnerhips exactly follow exactly the staggered or simultaneous review processes described here. However they are all closer to the staggered review than the simultaneous review. See [Appendix A](## Appendix A. Funder-RR partnerships and their timelines) for a detailed description of the six partnerships' timelines and processes.
+
 # Rationale for study
 
-Funders or jo
+
 
 # Study objectives and research questions
 
-The objective of study is to establish the feasibility of a randomised control trial (RCT) to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
+The primary research question of study is
 
-To achieve this objective our study will investigate the following research questions related to design and delivery of the intervention and future RCT:
+1. What is the feasibility of conducting a randomised control trial (RCT) to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
+
+To answer this primary research question our study will investigate the following secondary research questions related to design and delivery of the intervention and future RCT:
+
 1. What are the characteristics of existing partnerships models?
-2. What partnership model offers the most benefit to all stakeholders (editors, reviewers, funders, authors, researchers)?
-3. What partnership model is the most acceptable to all users (editors, reviewers funders and authors)?
-4. How might implementation of a partnership model vary?
+1. What partnership model offers the most benefit to all stakeholders (editors, reviewers, funders, authors, researchers)?
+1. What partnership model is the most acceptable to all users (editors, reviewers funders and authors)?
+1. How might implementation of a partnership model vary?
 1. How could participants be recruited?
-2. What positive effects might participants experience?
-3. What unintended effects might participation experience?
-2. What outcomes that indicate benefit to all stakeholders (editors, reviewers, funders, authors, researchers) can be collected?
+1. What positive effects might stakeholders experience?
+1. If any, What is responsible for these positive effect?
+1. What unintended effects might stakeholders experience?
+1. If any, what is responsible fo rthese unintended effects?
+1. What outcomes that indicate benefit to all stakeholders (editors, reviewers, funders, authors, researchers) can be collected?
 
 
 
 # Design
 
-
+The heterogeneity and scarcity of funder-RR partnerships makes it difficult to investigate our research questions quantativatively. Provider's and user's experience of them is likely to be highly subjective and is unlikely to yield a large enough sample for inferential statistics. 
+We will therefore conduct semi-structured interviews. 
+Focus groups are typically more time-consuming to transcribe and will be difficult to organise for a population that is often time-constrained and who will receive no reimbursement for their time.
+Semi-structured interviews were chosen over other format to ensure essential questions are answered but allow th freedom for follow-up questions if important topics emerge.
 
 2. What is the experience of stakeholders in existing partnerships? This will include their views on their model's:
+
 * potential improvements
 * feasibility of improvements
 * strengths
@@ -200,9 +245,18 @@ To achieve this objective our study will investigate the following research ques
 
 # Study site
 
+Interviews will be carried out over the phone or in person in Bristol, which ever the interviewee perfers although travel will be reimbused.
+If multiple interviewees reside in the same place it may be justifiable for the interviewer to travel to meet them.
+
 # Participants and recruitment
 
+To understand the experiences of all stakeholder groups in funder-RR partnerships we will need to recruit people from each stakeholder group, specifically authors of partnership submissions, personnel at partner funders (e.g. reviewers), personnel at partner journals (e.g. reviewers and editors) and readers of partnership publications. 
+
+[Methods of selection?]
+
 ## Inclusion criteria
+
+[why participant were most appropriate to provide knowledge]
 
 ## Sample size determination
 
@@ -211,6 +265,8 @@ To achieve this objective our study will investigate the following research ques
 # Materials
 
 # Procedure
+
+JT or KD will conduct the interviews, they will be voice recorded. Before the interview respondents will be sent the information sheet. Once they arrive for the interview they will complete the consent form. If it is a telephone interview the respondent will complete an online version of the consent form. 
 
 # Analysis plan
 
@@ -225,7 +281,13 @@ To achieve this objective our study will investigate the following research ques
 
 # Ethical Considerations and Informed Consent
 
-Ethics approval has been/will be obtained from the School of Psychological Science Research Ethics Committee  at the University of Bristol (Approval Code: [insert once given] ).  The study will be conducted according to the revised Declaration of Helsinki  (2013) and the 1996 ICH Guidelines for Good Clinical Practice E6(R1). The investigator will explain the nature, purpose and risks of the study to the participant. The interviewee will receive the information sheet in advance of the study session. There will be no time restriction on how long interviewees take to respond. Therefore, interviewees will be given sufficient time to read the information, consider any implications, and raise any questions with the investigators prior to making a decision to participate. At the start of the study session interviewees will be given the opportunity to read the information sheet again and ask the investigator questions. Written consent will then be obtained. Interviewees will be informed that they are free to withdraw at any time.
+Ethics approval has been/will be obtained from the School of Psychological Science Research Ethics Committee  at the University of Bristol (Approval Code: [insert once given] ).  
+The study will be conducted according to the revised Declaration of Helsinki  (2013) and the 1996 ICH Guidelines for Good Clinical Practice E6(R1). 
+The investigator will explain the nature, purpose and risks of the study to the participant. 
+The interviewee will receive the information sheet in advance of the study session. There will be no time restriction on how long interviewees take to respond. 
+Therefore, interviewees will be given sufficient time to read the information, consider any implications, and raise any questions with the investigators prior to making a decision to participate. 
+At the start of the study session interviewees will be given the opportunity to read the information sheet again and ask the investigator questions. 
+Written consent will then be obtained. Interviewees will be informed that they are free to withdraw at any time.
 
 # Safety
  
@@ -233,7 +295,8 @@ There are no expected hazards, due to the study consisting of an interview of no
 
 # Data Management
 
-All aspects of the Data Protection Act will be adhered to. Consent forms will be retained by the School of Psychological Science for a period of 10 years after study completion. All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF.
+All aspects of the Data Protection Act will be adhered to. Consent forms will be retained by the School of Psychological Science for a period of 10 years after study completion. 
+All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF.
 
 ## Anonymised project data
 
@@ -252,37 +315,47 @@ If a participant decides that they do not want their data used after their parti
 
 # Quality Control and Quality Assurance
  
-[EDIT: The investigators will be responsible for data quality. After approximately 10% of data collection has been completed, the study will undergo an in-house quality assessment. During this monitoring process all CRFs and study documents will be assessed as well as the investigators laboratory management and participant engagement, and corrected where necessary.
+[EDIT: The investigators will be responsible for data quality. 
+After approximately 10% of data collection has been completed, the study will undergo an in-house quality assessment.
+During this monitoring process all CRFs and study documents will be assessed as well as the investigators laboratory management and participant engagement, and corrected where necessary.
 
 Post-study checks will be conducted on data entry by an independent researcher. This researcher will re-enter 20% of hardcopy participant data. A threshold of 1% will be used, whereby error rates greater than 1% will require the data to be re-entered. A 100% check will be made on allocation to test condition.]
 
+This protocol was completed using the COREQ 
+
 # Insurance
 
-This study will be sponsored by the University of Bristol . The University has Public Liability Insurance to cover the liability of the University to research participants. In the event that something goes wrong and a participant is harmed during the research study there are no special compensation arrangements. If a participant is harmed and this is due to someone's negligence then they may have grounds for a legal action for compensation against Bristol University or one of the other parties to the research, but they may have to pay their own legal costs.
+This study will be sponsored by the University of Bristol. 
+The University has Public Liability Insurance to cover the liability of the University to research participants. In the event that something goes wrong and a participant is harmed during the research study there are no special compensation arrangements. 
+If a participant is harmed and this is due to someone's negligence then they may have grounds for a legal action for compensation against Bristol University or one of the other parties to the research, but they may have to pay their own legal costs.
 
 # Publication Policy
  
-The findings from this research study may be published in an appropriate scientific journal (and made available open access), and/or presented at an appropriate meeting. Study data will be collected and held by the study investigators. The data will be made available for sharing via a University of Bristol online data repository.
+The findings from this research study may be published in an appropriate scientific journal (and made available open access), and/or presented at an appropriate meeting. 
+Study data will be collected and held by the study investigators. The data will be made available for sharing via a University of Bristol online data repository.
 
 # Project personnel
 
-Katie Drax
-School of Psychological Science 
-12a Priory Road
-Bristol, BS8 1TU
+Katie Drax,
+School of Psychological Science ,
+12a Priory Road,
+Bristol, BS8 1TU,
 katie.drax@bristol.ac.uk 
 
-Marcus Munaf&ograve;
-School of Psychological Science 
-12a Priory Road
-Bristol, BS8 1TU
+Marcus Munaf&ograve;,
+School of Psychological Science,
+12a Priory Road,
+Bristol, BS8 1TU,
 marcus.munafo@bristol.ac.uk 
 
-Jacqueline Thompson
-School of Psychological Science 
-12a Priory Road
-Bristol, BS8 1TU
+Jacqueline Thompson,
+School of Psychological Science,
+12a Priory Road,
+Bristol, BS8 1TU,
 [?]@bristol.ac.uk 
+
+Christopher Chambers
+[insert]
 
 # Contributions and Authorship
  
@@ -290,12 +363,51 @@ KD and JT are the guarantors of the project. MM will supervise the project. [con
 
 # Funding Source
 
-This work is being funded by the John Climax Benevolent Fund. The funder will support the conduct of the work by paying KD's stipend. The funder has and will have no input on any aspect of the project, such the protocol design, data collection, data analysis nor interpretation or publication of results. 
+This work is being funded by the John Climax Benevolent Fund. 
+The funder will support the conduct of the work by paying KD's stipend. 
+The funder has and will have no input on any aspect of the project, such the protocol design, data collection, data analysis nor interpretation or publication of results. 
 
 [others?]
 
 # Conflicts of Interest
 
 [Chris & Marcus?]
+
+# Appendices
+
+## Appendix A. Funder-RR partnerships and their timelines
+
+Children’s Tumor Foundation (CTF) & PLoS ONE: Drug Discovery Initiative - Registered Reports (DDIRR)
+
+- Researchers submit letter of interest (LOI; 3 pages) to CTF 
+- Neurofibromatosis experts review the LOIs 
+    - This is done by appointment over the phone to CTF-DDIRR director, Salvo, and transcribed-- cuts down on turnaround waiting for reviews 
+
+- CTF decides on basis of reviews which LOIs to invite for full submission 
+- Researchers make full submission in Stage 1 RR format; this is submitted to PLoS One, along with original CTF reviews, for review (including statistical review) by PLoS ONE reviewers 
+- Stage 1 review suggestions sent back to authors, who are asked to incorporate and resubmit within 1-2 weeks 
+- If reviewers (or editor??) are satisfied -- IPA granted [correct]
+- Authors post registrations ASAP after IPA 
+- Stage 1 protocols are not published following IPA. Instead they are held in reserve by the journal and integrated into the completed article following approval of the final Stage 2 manuscript. 
+  
+
+CHDI Foundation & PLoS Biology
+
+- Science directors at CHDI (who work closely with funded teams) propose RR to research groups (SDs meet with teams at an official Joint Steering Committee every 3 months) 
+- Research groups send pre-submission enquiry to PLoS 
+- If successful, they write the RR and submit Stage 1 
+- (project will be funded either way - part of already funded groups) 
+  
+
+Cancer Research UK (CRUK) & Nicotine and Tobacco Research (N&TR)
+
+- CRUK evaluate possible submissions’ relevance to N&TR subject areas 
+- N&TR editor confirms which would be relevant to the journal 
+- CRUK evaluate submissions & decide which ones to fund 
+- After receiving their award letter, funded projects are given the opportunity to submit RR to N&TR 
+- N&TR assesses Stage 1 and eventually Stage 2 submissions like a normal RR
+        	
+[insert images]
+
 
 # References
