@@ -126,33 +126,40 @@ df <- lapply(df, function(x) gsub("[^\u0001-\u007F]+", "",x)) %>%
 # relabel NAs
 
 df[df == c(" ", "")] <- NA
+
+
 ```
 
 
 # Background
 
-Registered Reports (RRs) are a research report format where submissions undergo a two-stage peer-review process, once before data collection and once after. Manuscripts that pass the first review cannot be rejected based on any outcomes observed in the second. To date, 206 journals offer RRs (https://cos.io/rr/).  
+Registered Reports (RRs) are a research report format where submissions undergo a two-stage peer-review process, once before data collection when a protocol containing the Introduction and Methods sections are reviewed and once after, when the complete manuscript is reviewed and adherence to the stage one submission is checked. Protocols that pass stage one are granted in-principle acceptance (IPA) meaning they cannot be rejected based on any outcomes observed in the stage two. These two components, pre-study review and IPA are what define an RR. To date, 206 journals offer RRs (https://cos.io/rr/). Detailed discussion of the potential benefits and limitations of RRs can be found in several articles including @grand2018, @vantveer2016, @parker2019, @chambers2014 and @marsden2018a. These non-empirical articles lay out the theoretical impacts that logically follow from offering or authoring RRs. For example that peer-review before data collection could improve study designs or that IPA reduces publication bias for certain results. The acceptability of RRs is also clear from the speed of uptake by journals. However there is minimial empirical evidence that these theoretical impacts are realised in practice. 
 
-## Review of RR literature
+Like any intervention the success of RRs will be partly dependent on the quality of their implementation. @hardwicke2018  surveyed 145 stage one and stage two RRs, of which 43% had not shared their IPA, privately or publicly, and only 24% of these gave a reason why. Shared protocols were done so sub-optimally. [insert]. Another issue is terminology. Of the 54 completed and published RRs half were clearly labelled as an RR. Similar to the confusion between 'registration' and 'pre-registration' [insert citation] a qualitative survey indicates editorial board members can be confused about what RRs are (@woznyj2018)[check].As the number of RR journals increases it become more important to understand how to ensure the quality of their implementation at a large scale. Among other things this will allow precise evaluations of impact of RRs as a whole, otheriwse large variation in implementation will make evlauations noisy or ungeneralisable. 
 
-To further our understanding of RRs, namely the potential benefits and concerns related to them, KD performed a semi-systematic review of the literature. She searched Scopus for articles that contained "registered reports" in any field, yielding 220 results. The results were exported to Zotero and screened. Results were excluded if their meta-data contained no doi, if a full text could not be retrieved or if the main text of the article contained no reference to RRs. 94 results were included but upon reading the articles Upon reading the articles retrieved from Scopus KD identified an article (@chambers2014) that was repeatedly referenced but was not retrieved by the search. Since the article appeared to be important to the discussion of RRs it was included in the review giving a total of 93 articles. 
-
-KD read all 93 articles and extracted text containing references to RRs and noted reported benefits and concerns about RRs. If the number of references were deemed to numerous to extract the entire article was read to identify benefits and concerns. KD made notes summarising the reported benefits and concerns in each article. A summary of the notes is given below.
-
-## Description of sample
-
-Of the 95 articles 17 were editorials, or similar, annoucing that the publishing journal now offered RRs. 
+Despite the lack of evidence for RRs efficacy research funders have already begun 'upgrading' the format. Six funders have formed 'partnerships' with RR journals. None of these partnership models are identical but they all involve a funder and a journal collaborating to streamline the transition from funding application to journal submission. 
 
 ```{r}
-# number of annoucements
+library(httr)
+url <- 'https://osf.io/n5czt//?action=download'
+filename <- 'protocolData.csv'
+GET(url, write_disk(filename, overwrite = TRUE))
+osf <- read.csv(filename, header=TRUE, na.strings="NA")
 
-length(unique(df$title[grep("announcement_RRs", df$manual_tags)]))
+freq <- function(col){
+  prop.table(table(col))
+}
+
+freq(osf$protocolMadeAvailable)
+freq(osf$reasonForNoShare)
+
+sum(is.na(osf$identifiesAsRR))
+freq(osf$identifiesAsRR)
+
+#egistered: method by which the IPA protocol was registered. "yes" means the protocol was formally registered. "OSF timestamp" means the protocol was available on the Open Science Framework (OSF) but was not formally registered.  "published" means the IPA protocol was published as an article in the journal. "no" means the IPA protocol has no registration features, it is simply available on the Internet.
+
+freq(osf$registered)
 ```
-
-## RR journal-funder partnerships
-
-Six funders have formed 'partnerships' with RR journals. None of these partnership models are identical but they all involve a funder and a journal collaborating to streamline the transition from funding application to journal submission. 
-
 # Rationale for study
 
 Funders or jo
