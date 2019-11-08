@@ -178,6 +178,22 @@ df_subset <- function(df, col){
 
 ```
 
+# Review of RR literature
+
+To further our understanding of RRs, namely the potential benefits and concerns related to them, KD performed a semi-systematic review of the literature. She searched Scopus for articles that contained "registered reports" in any field, yielding 220 results. The results were exported to Zotero and screened. Results were excluded if their meta-data contained no doi, they had no english translation, if a full text could not be retrieved or if the main text of the article contained no reference to RRs. 92 results were included but upon reading the articles Upon reading the articles retrieved from Scopus KD identified an article (@chambers2014) that was repeatedly referenced but was not retrieved by the search. Since the article appeared to be important to the discussion of RRs it was included in the review giving a total of 93 articles. 
+
+KD read all 93 articles and extracted text containing references to RRs and noted reported benefits and concerns about RRs. If the number of references were deemed to numerous to extract the entire article was read to identify benefits and concerns. KD made notes summarising the reported benefits and concerns in each article. A summary of the notes is given below.
+
+## Description of sample TO BE COMPLETED
+
+Of the 95 articles 17 were editorials, or similar, annoucing that the publishing journal now offered RRs.
+
+```{r}
+# number of annoucements
+
+length(unique(df$title[grep("announcement_RRs", df$manual_tags)]))
+```
+
 
 # IPA benefits
 
@@ -258,5 +274,24 @@ tab("pre-study|feedback", df$empirical_con, "empirical_con")
 ```{r}
 neg_tab("ipa|feedback|pre-study", df$empirical_pro, "empirical_pro")
 neg_tab("ipa|feedback|pre-study", df$empirical_con, "empirical_con")
+
+```
+
+# Which were the main articles?
+
+```{r}
+# subset df and conduct content analysis
+
+op_pro <- df_subset(df, "opinion_pro") %>%
+  unnest_tokens(output = word, input = opinion_pro)
+
+y <- as.data.frame(sort(table(op_pro$citekey),decreasing=TRUE)[1:10])
+
+op_con <- df_subset(df, "opinion_con_buts") %>%
+  unnest_tokens(output = word, input = opinion_con_buts)
+
+x <- as.data.frame(sort(table(op_con$citekey),decreasing=TRUE)[1:10])
+
+x <- rbind(x, y)
 
 ```
