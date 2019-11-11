@@ -12,9 +12,8 @@ bibliography: rr_library.bib
 knitr::opts_chunk$set(echo = F)
 
 library(tidyverse)
-library(knitr)
+library(pander)
 
-options(knitr.kable.NA = "")
 
 ### 
 # import data ####
@@ -150,7 +149,8 @@ Another issue is terminology. Of the 54 completed and published RRs half were cl
 Similar to the confusion between 'registration' and 'pre-registration' @rice2019 a qualitative survey indicates editorial board members can be confused about what RRs are (@woznyj2018)[check].
 
 
-```{r}
+```{r, echo=F, include = F}
+
 library(httr)
 url <- 'https://osf.io/n5czt//?action=download'
 filename <- 'protocolData.csv'
@@ -167,7 +167,7 @@ freq(osf$reasonForNoShare)
 sum(is.na(osf$identifiesAsRR))
 freq(osf$identifiesAsRR)
 
-#egistered: method by which the IPA protocol was registered. "yes" means the protocol was formally registered. "OSF timestamp" means the protocol was available on the Open Science Framework (OSF) but was not formally registered.  "published" means the IPA protocol was published as an article in the journal. "no" means the IPA protocol has no registration features, it is simply available on the Internet.
+#registered: method by which the IPA protocol was registered. "yes" means the protocol was formally registered. "OSF timestamp" means the protocol was available on the Open Science Framework (OSF) but was not formally registered.  "published" means the IPA protocol was published as an article in the journal. "no" means the IPA protocol has no registration features, it is simply available on the Internet.
 
 freq(osf$registered)
 ```
@@ -202,11 +202,14 @@ None of the six partnerhips exactly follow exactly the staggered or simultaneous
 
 # Study objectives and research questions
 
-The primary research question of study is
+The aim of our study is to determine the feasibility of conducting a randomised control trial (RCT) to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
 
-1. What is the feasibility of conducting a randomised control trial (RCT) to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
+To achieve this aim our study will investigate the following research questions: 
 
-To answer this primary research question our study will investigate the following secondary research questions related to design and delivery of the intervention and future RCT:
+1. What partnership model is the most feasible and beneficial?
+2. What outcome measures are the most feasible to collect and most valid  
+
+related to design and delivery of the intervention and future RCT:
 
 1. What are the characteristics of existing partnerships models?
 1. What partnership model offers the most benefit to all stakeholders (editors, reviewers, funders, authors, researchers)?
@@ -219,14 +222,18 @@ To answer this primary research question our study will investigate the followin
 1. If any, what is responsible fo rthese unintended effects?
 1. What outcomes that indicate benefit to all stakeholders (editors, reviewers, funders, authors, researchers) can be collected?
 
+# Methods
 
+This protocol is reported in line with the COREQ checklist [Appendix B](#Appendix B. Completed COREQ checklist)
 
-# Design
+## Rationale for qualitative design
 
 The heterogeneity and scarcity of funder-RR partnerships makes it difficult to investigate our research questions quantativatively. Provider's and user's experience of them is likely to be highly subjective and is unlikely to yield a large enough sample for inferential statistics. 
-We will therefore conduct semi-structured interviews. 
+We will therefore use a qualitative design, specifically semi-structured interviews. 
 Focus groups are typically more time-consuming to transcribe and will be difficult to organise for a population that is often time-constrained and who will receive no reimbursement for their time.
-Semi-structured interviews were chosen over other format to ensure essential questions are answered but allow th freedom for follow-up questions if important topics emerge.
+Semi-structured interviews were chosen over other format to ensure essential questions are answered to allow comparison across participants but allow follow-up questions to be asked if important topics emerge. They 
+
+## Design
 
 2. What is the experience of stakeholders in existing partnerships? This will include their views on their model's:
 
@@ -243,38 +250,92 @@ Semi-structured interviews were chosen over other format to ensure essential que
 * impact on funders reputation
 * impact on researcher's career prospects
 
-# Study site
+## Respondents and recruitment
 
-Interviews will be carried out over the phone or in person in Bristol, which ever the interviewee perfers although travel will be reimbused.
-If multiple interviewees reside in the same place it may be justifiable for the interviewer to travel to meet them.
+To understand the experiences of all stakeholder groups in funder-RR partnerships we will need to recruit [number?] people from each of the four stakeholder groups, (1) authors of partnership submissions, (2) personnel at partner funders (e.g. reviewers), (3) personnel at partner journals (e.g. reviewers and editors) and (4) readers of partnership publications. 
 
-# Participants and recruitment
+People will be sampled [how?]. 
 
-To understand the experiences of all stakeholder groups in funder-RR partnerships we will need to recruit people from each stakeholder group, specifically authors of partnership submissions, personnel at partner funders (e.g. reviewers), personnel at partner journals (e.g. reviewers and editors) and readers of partnership publications. 
-
-[Methods of selection?]
-
-## Inclusion criteria
+### Inclusion criteria
 
 [why participant were most appropriate to provide knowledge]
 
-## Sample size determination
+### Sample size determination
 
-# Measures
+We expect this sample size (up to N = [sample?]) to be [justification? feasibility? data saturation?]. 
 
-# Materials
+## Measures
 
-# Procedure
+## Materials
 
-JT or KD will conduct the interviews, they will be voice recorded. Before the interview respondents will be sent the information sheet. Once they arrive for the interview they will complete the consent form. If it is a telephone interview the respondent will complete an online version of the consent form. 
+## Transcription
 
-# Analysis plan
+We are only interested in the information communicated during the interview, not how it is communicated. 
+Therefore interviews will be trascribed by RC using denaturalised transcription (@oliver2005).
+This means utterances or noises deemed unnecessary for understanding the original meaning of the content will not be transcribed.
+RC will use the transcription notation described in [Table 1](### *Table 1. Transcription notation*)
+See [Table 1](Table 1) for the transcription protocol for this study.
 
-## Thematic analysis
+### *Table 1. Transcription notation*
+
+```{r}
+
+# df of audio elements that won't be transcribed
+
+no <- data.frame(
+  Audio = c("Emotional content (e.g. laughter, sighing, crying, emphasis, coughing, exhalation, inhalation, sneezing, sniffing)", "Prosodic features (e.g. pitch, loudness)", "Incomplete/interrupted speech", "Duration of pauses", "Filler words", "Background noises", "Overlapping speech", "Unintelligable speech", "Uncertain speech"),
+  Notation = rep("Not transcribed or noted"),
+  stringsAsFactors = F
+)
+
+# df of audio elements that will be transcribed and their notation
+
+yes <- data.frame(
+  Audio = c("Pauses", 
+        "Questions (e.g. direct questions or upward inflection)", 
+        "Exclamations", 
+        "Mispronunciations, informal contractors or slang",
+        "Quotations",
+        "Irrelevant information (e.g. welcomes, goodbyes, small talk)",
+        "Names"),
+  Notation = c("Comma ',' or full-stop '.'",
+        "Question mark '?'", 
+        "Exclamation mark '!'", 
+        "Transcribed as correct spelling if possible. Transcribed as respondent says them if not.",
+        "Write without quotation marks (e.g. he said I could)", 
+        "Not transcribed. Provide a summary in square brackets (e.g. [Interviewer welcomes respondent and ask about each other's wellbeing]",
+        "Not transcribed on respondents request. Provide a general term describing the removed names (e.g. [person's name], [workplace]"),
+  stringsAsFactors = F
+)
+
+# bind dfs of audio elements that will (yes) and won't (no) be transcripted & present as a table
+
+rbind(no, yes) %>%
+  arrange(Audio)%>%
+  pander(split.cell = 80, split.table = Inf, justify = "left")
+
+```
+
+
+## Procedure
+
+KD and JT will then invite selected people by email [or phone?].
+If an individual agrees to particpate the information sheet and online consent form will be emailed to them. 
+Once consent is received the respondent and interviewer will arrange the interview for a mutally convenient time.
+Interviews will be face-to-face in Bristol or by telephone, which ever the respondent prefers. However travel will not be reimbused.
+If multiple respondents reside in the same place and can be interviewed on the same day it may be justifiable for the interviewer to offer to travel to meet them.
+JT or KD will conduct the interviews, they will be audio recorded and last around [45?] minutes.
+If the audio recording is of poor quality the respondent will be invited for a second interview.
+RC will transcribe the interviews.
+
+
+## Analysis plan
+
+### Thematic analysis
 
 [highlighting, examining & recording patterns in data (coding)]
 
-## Data saturation
+### Data saturation
 
 [assessing & reporting]
 
@@ -296,7 +357,7 @@ There are no expected hazards, due to the study consisting of an interview of no
 # Data Management
 
 All aspects of the Data Protection Act will be adhered to. Consent forms will be retained by the School of Psychological Science for a period of 10 years after study completion. 
-All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF.
+All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF. Almost everything will be hosted publicly, except the audio recordings which will remain private [?]. 
 
 ## Anonymised project data
 
@@ -304,6 +365,7 @@ All project materials (including the data, analysis code, protocols, interview s
 
 Original computer data files will be backed up on a secured University of Bristol network drive. At the end of the study, electronic study data (including finalised data sheet) will be transferred to a designated University of Bristol Research Data Storage Facility for long-term archiving. Study data will be kept for a minimum of 15  years. At the appropriate time the data sheet will be locked and made open using the University of Bristol Research Data Repository .]
 
+[See Table 1 - how can we anonymise text? There are several text anonymisation tools available]
 
 ## Participant contact details
 
@@ -352,7 +414,7 @@ Jacqueline Thompson,
 School of Psychological Science,
 12a Priory Road,
 Bristol, BS8 1TU,
-[?]@bristol.ac.uk 
+jackie.thompson@bristol.ac.uk 
 
 Christopher Chambers
 [insert]
@@ -409,5 +471,6 @@ Cancer Research UK (CRUK) & Nicotine and Tobacco Research (N&TR)
         	
 [insert images]
 
+## Appendix B. Completed COREQ checklist
 
 # References
