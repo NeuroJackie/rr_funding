@@ -151,11 +151,7 @@ Similar to the confusion between 'registration' and 'pre-registration' @rice2019
 
 ```{r, echo=F, include = F}
 
-library(httr)
-url <- 'https://osf.io/n5czt//?action=download'
-filename <- 'protocolData.csv'
-GET(url, write_disk(filename, overwrite = TRUE))
-osf <- read.csv(filename, header=TRUE, na.strings="NA")
+osf <- read.csv(url("https://osf.io/n5czt//?action=download"))
 
 freq <- function(col){
   prop.table(table(col))
