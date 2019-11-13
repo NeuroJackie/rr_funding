@@ -1,4 +1,0 @@
-00. Searched Web of Science (WoS) with the syntax shown in this image on 7 Oct 2019 and exported 'Full Record' of all records as an 'Other Reference Software' file format
-01. WoS export
-02. imported 01 file into new Zotero group library. Screened all records. Excluded records if they (1) did not refer to registered reports (using any term) (2) did reference registered reports but did not discuss RRs beyond defining or describing the RR process (3) did not have a valid doi (4) had a full-text could not be accessed. Screened records were tagged as 'exclude' or 'include'. When screen was complete I exported all records from Zotero as a BibTeX file.
-03. copied all text referencing RRs to a note - if the article contained vast amounts of text it was marked as 'key'
