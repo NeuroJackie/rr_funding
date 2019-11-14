@@ -43,7 +43,3 @@ CSV_better format exports the same fields as the default CSV export plus the `Ci
 
 * CSV_better fields = default CSV fields plus the `Citekey` field 
 
-# interpretation_kables.Rmd
-
-RMarkdown document that outputs kables (if exporting to word) or pandoc.tables (if exporting to PDF) showing all interpretative notes made about all included articles (with a Zotero note and without) listed next to their citation key.
-This is to help exploration of the notes. 
