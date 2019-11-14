@@ -11,8 +11,12 @@ bibliography: rr_library.bib
 ```{r setup, include=F} 
 knitr::opts_chunk$set(echo = F)
 
-library(tidyverse)
 library(pander)
+library(dplyr)
+library(readr)
+
+df <- read.csv("../mini_review/analysis/analysis_clean.csv", stringsAsFactors = F)
+
 
 ```
 
@@ -71,21 +75,38 @@ Six funders are currently in 'partnerships' with RR journals. Though none of the
 * Prostate Cancer Foundation - Movember Foundation Reproducibility Initiative and PeerJ journal (https://osf.io/ih9qt/wiki/home/)
 * Language Learning Early Career Research Grant Program and Language Learning journal (https://onlinelibrary.wiley.com/page/journal/14679922/homepage/grant_programs.htm)
 
-Previously the Center for Open Science funded RRs of replication studie submitted to Perspectives on Psychological Science journal (https://www.psychologicalscience.org/observer/aps-replication-initiative-underway) but the partnership has now finished.
+Previously the Center for Open Science funded RRs of replication studies submitted to Perspectives on Psychological Science journal (https://www.psychologicalscience.org/observer/aps-replication-initiative-underway) but the partnership has now finished.
 
 Early proposals of funder-RR partnerships from @marcus2017a and the Center for Open Science (https://web.archive.org/web/20170202152633/https://cos.io/rr/), suggested that authors submit a detailed procotol before the research is funded. 
 The protocol is then simultaneously reviewed by a funder and a journal. 
 Successful submissions receive funding from the funder and IPA  from the journal, potentially on the same day. 
 Another option is a staggered review process whereby a funder receives a conventional grant application and successful applications are invited to submit a stage one protocol to the partnering journal, or possibly journals. 
-None of the six partnerhips exactly follow exactly the staggered or simultaneous review processes described here. However they are all closer to the staggered review than the simultaneous review. See [Appendix A](## Appendix A. Funder-RR partnerships and their timelines) for a detailed description of the six partnerships' timelines and processes.
+None of the six partnerhips exactly follow exactly the staggered or simultaneous review processes described here. 
+However they are all closer to the staggered review than the simultaneous review. 
+See [Appendix A](## Appendix A. Funder-RR partnerships and their timelines) for a detailed description of the six partnerships' timelines and processes.
 
 # Rationale for study
 
+The number of journals offering RRs is rapidly increasing and six funder-RR journal partnerships already exist.
+This uptake demonstrates that many journals and several funders believe the potential benefits of RRs outweight their potential risks but the truth of these beliefs remains to be determined. 
+A randomised control trial (RCT) would provide the strongest evidence for the impacts of RRs or partnerships.
+However given that no such RCT exists it is difficult to know how either RCT should be designed.
+Feasibility or pilot studies would help inform a RCT to ensure the validty and reliability of its results.
+Here we use [cite] definition of feasibility and pilot studies.
+[give definition]
 
+We will conduct a feasibility study to inform a pilot RCT to assess the impacts of partnerships. 
+Currently we do not know how feasible or acceptable partnerships are to their stakeholders nor how a RCT of their impacts should be designed and conducted.
+Given these unknowns a feasibility study is required to inform a future pilot.
+
+A RCT of RRs is likely to be more immediately feasible than a RCT of partnerships since there are far more RR journals. 
+However, we have chosen to focus on the impacts of partnerships rather than RRs because [?] we believe we have access to funder personnel that other researchers may not. 
+MM is the editor of Nicotine and Tobacco Research and CC is on the Center for Open Science steering committee for RRs [check]. 
+Additionally a RCT of partnerships may also assess the impacts of RRs since the RR process is nested within a partnership. 
 
 # Study objectives and research questions
 
-The aim of our study is to determine the feasibility of conducting a randomised control trial (RCT) to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
+The aim of our study is to determine the feasibility of conducting a RCT to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
 
 To achieve this aim our study will investigate the following research questions: 
 
@@ -244,7 +265,7 @@ All project materials (including the data, analysis code, protocols, interview s
 
 ## Anonymised project data
 
-[EDIT: Case report forms (CRFs) and electronic data will be anonymised by a unique numeric identifier. CRFs will be stored in a locked office. All data requested on the CRF will be recorded. All missing data will be explained. If any entry errors are made, a single straight line will be drawn through the incorrect entry and the correct data entered above it; to correct such an error. All such changes will be initialed and dated. Once data from CRFs have been inputted into a data spreadsheet they will undergo a reliability check (20% check by independent researcher). If an error rate greater than 1% is obtained the data will be re-inputted in full and assessed again. After the data have been positively assessed, the CRFs will be destroyed in the School’s confidential waste facility .
+[EDIT: Case report forms (CRFs) and electronic data will be anonymised by a unique numeric identifier. CRFs will be stored in a locked office. All data requested on the CRF will be recorded. All missing data will be explained. If any entry errors are made, a single straight line will be drawn through the incorrect entry and the correct data entered above it; to correct such an error. All such changes will be initialed and dated. Once data from CRFs have been inputted into a data spreadsheet they will undergo a reliability check (20% check by independent researcher). If an error rate greater than 1% is obtained the data will be re-inputted in full and assessed again. After the data have been positively assessed, the CRFs will be destroyed in the School's confidential waste facility .
 
 Original computer data files will be backed up on a secured University of Bristol network drive. At the end of the study, electronic study data (including finalised data sheet) will be transferred to a designated University of Bristol Research Data Storage Facility for long-term archiving. Study data will be kept for a minimum of 15  years. At the appropriate time the data sheet will be locked and made open using the University of Bristol Research Data Repository .]
 
@@ -322,7 +343,7 @@ The funder has and will have no input on any aspect of the project, such the pro
 
 ## Appendix A. Funder-RR partnerships and their timelines
 
-Children’s Tumor Foundation (CTF) & PLoS ONE: Drug Discovery Initiative - Registered Reports (DDIRR)
+Children's Tumor Foundation (CTF) & PLoS ONE: Drug Discovery Initiative - Registered Reports (DDIRR)
 
 - Researchers submit letter of interest (LOI; 3 pages) to CTF 
 - Neurofibromatosis experts review the LOIs 
@@ -346,7 +367,7 @@ CHDI Foundation & PLoS Biology
 
 Cancer Research UK (CRUK) & Nicotine and Tobacco Research (N&TR)
 
-- CRUK evaluate possible submissions’ relevance to N&TR subject areas 
+- CRUK evaluate possible submissions' relevance to N&TR subject areas 
 - N&TR editor confirms which would be relevant to the journal 
 - CRUK evaluate submissions & decide which ones to fund 
 - After receiving their award letter, funded projects are given the opportunity to submit RR to N&TR 
