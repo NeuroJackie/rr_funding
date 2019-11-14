@@ -1,6 +1,6 @@
 ---
 title: "Project protocol"
-subtitle: "Registered reports funding models: a feasibility study"
+subtitle: "Registered reports funding models: a qualitative feasibility study"
 author: "Christopher Chambers, Katie Drax,  Marcus Munaf&ograve; and Jacqueline Thompson"
 date: "November 2019"
 output: pdf_document
@@ -95,14 +95,16 @@ Feasibility or pilot studies would help inform a RCT to ensure the validty and r
 Here we use [cite] definition of feasibility and pilot studies.
 [give definition]
 
-We will conduct a feasibility study to inform a pilot RCT to assess the impacts of partnerships. 
-Currently we do not know how feasible or acceptable partnerships are to their stakeholders nor how a RCT of their impacts should be designed and conducted.
-Given these unknowns a feasibility study is required to inform a future pilot.
-
 A RCT of RRs is likely to be more immediately feasible than a RCT of partnerships since there are far more RR journals. 
-However, we have chosen to focus on the impacts of partnerships rather than RRs because [?] we believe we have access to funder personnel that other researchers may not. 
+However, we are planning to conduct an RCT of the impacts of partnerships rather than RRs because [?] we believe we have access to funder personnel that other researchers may not. 
 MM is the editor of Nicotine and Tobacco Research and CC is on the Center for Open Science steering committee for RRs [check]. 
 Additionally a RCT of partnerships may also assess the impacts of RRs since the RR process is nested within a partnership. 
+
+We will conduct a qualitative feasibility study to inform a pilot RCT to assess the impacts of partnerships.
+Currently we do not know how acceptable partnerships are to their stakeholders nor how a RCT of their impacts should be designed and conducted.
+These unknowns means a feasibility study is required to inform a future pilot.
+we have chosen a qualitative design because funder-RR partnerships are rare and have heterogeneous processes. 
+The provider's and user's experience of partnerhips is likely to be highly variable and it will be difficult  to yield a large enough sample for inferential statistics. 
 
 # Study objectives and research questions
 
@@ -111,7 +113,7 @@ The aim of our study is to determine the feasibility of conducting a RCT to answ
 To achieve this aim our study will investigate the following research questions: 
 
 1. What partnership model is the most feasible and beneficial?
-2. What outcome measures are the most feasible to collect and most valid  
+2. What outcome measures are valid, reliable, feasible and yield high responsiveness?
 
 related to design and delivery of the intervention and future RCT:
 
@@ -130,14 +132,10 @@ related to design and delivery of the intervention and future RCT:
 
 This protocol is reported in line with the COREQ checklist [Appendix B](#Appendix B. Completed COREQ checklist)
 
-## Rationale for qualitative design
-
-The heterogeneity and scarcity of funder-RR partnerships makes it difficult to investigate our research questions quantativatively. Provider's and user's experience of them is likely to be highly subjective and is unlikely to yield a large enough sample for inferential statistics. 
-We will therefore use a qualitative design, specifically semi-structured interviews. 
-Focus groups are typically more time-consuming to transcribe and will be difficult to organise for a population that is often time-constrained and who will receive no reimbursement for their time.
-Semi-structured interviews were chosen over other format to ensure essential questions are answered to allow comparison across participants but allow follow-up questions to be asked if important topics emerge. They 
-
 ## Design
+
+Semi-structured interviews were chosen over other interview formats to ensure essential questions are answered to allow comparison across participants but allow follow-up questions to be asked if important topics emerge. 
+They are also preferable to focus groups because focus groups are typically more time-consuming to transcribe and will be difficult to organise for a target population that is small and geographically dispersed.
 
 2. What is the experience of stakeholders in existing partnerships? This will include their views on their model's:
 
