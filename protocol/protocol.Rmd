@@ -13,9 +13,8 @@ knitr::opts_chunk$set(echo = F)
 
 library(pander)
 library(dplyr)
-library(readr)
 
-df <- read.csv("../mini_review/analysis/analysis_clean.csv", stringsAsFactors = F)
+#df <- read.csv("../mini_review/outputs/analysis_clean.csv", stringsAsFactors = F)
 
 
 ```
@@ -35,9 +34,9 @@ However there is minimial empirical evidence that these theoretical impacts are 
 
 Like any intervention the success of RRs will be partly dependent on the quality of their implementation. @hardwicke2018  surveyed 145 stage one and stage two RRs, of which 43% had not shared their IPA, privately or publicly, and only 24% of these gave a reason why. 
 Shared protocols were done so sub-optimally. 
-[insert].
+**[insert]**.
 Another issue is terminology. Of the 54 completed and published RRs half were clearly labelled as an RR. 
-Similar to the confusion between 'registration' and 'pre-registration' @rice2019 a qualitative survey indicates editorial board members can be confused about what RRs are (@woznyj2018)[check].
+Similar to the confusion between 'registration' and 'pre-registration' [@rice2019] a qualitative survey indicates editorial board members can be uncertain about what RRs are [@woznyj2018].
 
 
 ```{r, echo=F, include = F}
@@ -68,7 +67,7 @@ Despite the lack of evidence for RRs efficacy research funders are extending the
 Six funders are currently in 'partnerships' with RR journals. Though none of the funder-RR partnerships are identical they all involve one funder and one RR journal collaborating to streamline the transition from funding application to journal publication. The six existing partnerships are listed below:
 
 * The Flu Lab, PLOS, and the Center for Open Science (https://cos.io/our-services/research/flulab/)
-* Cancer Research UK and Nicotine & Tobacco Research journal (@munafo2017)
+* Cancer Research UK and Nicotine & Tobacco Research journal [@munafo2017]
 * Global Research Awards for Nicotine Dependence and Nicotine & Tobacco Research journal (http://www.grandawardsprogram.org/news/news-and-announcements.html)
 * Children's Tumor Foundation and PLOS ONE (https://blogs.plos.org/everyone/2017/09/26/registered-reports-with-ctf/)
 * The Association for Politics & The Life Sciences and Politics and the Life Sciences journal (https://www.cambridge.org/core/journals/politics-and-the-life-sciences/information/call-for-papers-psychophysiology-cognition-and-political-differences)
@@ -77,7 +76,7 @@ Six funders are currently in 'partnerships' with RR journals. Though none of the
 
 Previously the Center for Open Science funded RRs of replication studies submitted to Perspectives on Psychological Science journal (https://www.psychologicalscience.org/observer/aps-replication-initiative-underway) but the partnership has now finished.
 
-Early proposals of funder-RR partnerships from @marcus2017a and the Center for Open Science (https://web.archive.org/web/20170202152633/https://cos.io/rr/), suggested that authors submit a detailed procotol before the research is funded. 
+Early proposals of funder-RR partnerships from @munafo2017a and the Center for Open Science (https://web.archive.org/web/20170202152633/https://cos.io/rr/), suggested that authors submit a detailed procotol before the research is funded. 
 The protocol is then simultaneously reviewed by a funder and a journal. 
 Successful submissions receive funding from the funder and IPA  from the journal, potentially on the same day. 
 Another option is a staggered review process whereby a funder receives a conventional grant application and successful applications are invited to submit a stage one protocol to the partnering journal, or possibly journals. 
@@ -92,12 +91,12 @@ This uptake demonstrates that many journals and several funders believe the pote
 A randomised control trial (RCT) would provide the strongest evidence for the impacts of RRs or partnerships.
 However given that no such RCT exists it is difficult to know how either RCT should be designed.
 Feasibility or pilot studies would help inform a RCT to ensure the validty and reliability of its results.
-Here we use [cite] definition of feasibility and pilot studies.
-[give definition]
+Here we use **[cite]** definition of feasibility and pilot studies.
+**[give definition]**
 
 A RCT of RRs is likely to be more immediately feasible than a RCT of partnerships since there are far more RR journals. 
-However, we are planning to conduct an RCT of the impacts of partnerships rather than RRs because [?] we believe we have access to funder personnel that other researchers may not. 
-MM is the editor of Nicotine and Tobacco Research and CC is on the Center for Open Science steering committee for RRs [check]. 
+However, we are planning to conduct an RCT of the impacts of partnerships rather than RRs because we believe we have access to partnerhip stakeholders that other researchers may not. 
+MM and CC are both journal editors and CC is the Chair of the Registered Reports Committee at the Center for Open Science. 
 Additionally a RCT of partnerships may also assess the impacts of RRs since the RR process is nested within a partnership. 
 
 We will conduct a qualitative feasibility study to inform a pilot RCT to assess the impacts of partnerships.
@@ -110,70 +109,120 @@ The provider's and user's experience of partnerhips is likely to be highly varia
 
 The aim of our study is to determine the feasibility of conducting a RCT to answer the question: 'do RR partnerships (i.e. of funders & journals working together to offer authors RRs) benefit funders?'.
 
-To achieve this aim our study will investigate the following research questions: 
+To achieve this aim our study will investigate the following research questions related to design and delivery of the intervention and future RCT: 
 
-1. What partnership model is the most feasible and beneficial?
-2. What outcome measures are valid, reliable, feasible and yield high responsiveness?
+RQ1. What partnership model is the most feasible, acceptable and beneficial?
 
-related to design and delivery of the intervention and future RCT:
+RQ2. What outcome measures will be valid, reliable, feasible, acceptable and yield high completion rates?
 
-1. What are the characteristics of existing partnerships models?
-1. What partnership model offers the most benefit to all stakeholders (editors, reviewers, funders, authors, researchers)?
-1. What partnership model is the most acceptable to all users (editors, reviewers funders and authors)?
-1. How might implementation of a partnership model vary?
-1. How could participants be recruited?
-1. What positive effects might stakeholders experience?
-1. If any, What is responsible for these positive effect?
-1. What unintended effects might stakeholders experience?
-1. If any, what is responsible fo rthese unintended effects?
-1. What outcomes that indicate benefit to all stakeholders (editors, reviewers, funders, authors, researchers) can be collected?
+RQ3. What RCT design will be feasible, acceptable and appropriate?
+
+@ocathain2013's framework describing what aspects of RCTs can be improved by qualitative research informed the forumulation of these research questions.
 
 # Methods
 
-This protocol is reported in line with the COREQ checklist [Appendix B](#Appendix B. Completed COREQ checklist)
+This protocol is reported in line with the COREQ checklist [@tong2007]. 
+See [Supplementary 1](**[add url]**) for the completed checklist.
 
 ## Design
 
+We will conduct one semi-structured interview with each respondent. 
 Semi-structured interviews were chosen over other interview formats to ensure essential questions are answered to allow comparison across participants but allow follow-up questions to be asked if important topics emerge. 
 They are also preferable to focus groups because focus groups are typically more time-consuming to transcribe and will be difficult to organise for a target population that is small and geographically dispersed.
 
-2. What is the experience of stakeholders in existing partnerships? This will include their views on their model's:
+## Respondents and recruitment
 
-* potential improvements
-* feasibility of improvements
+To understand the experiences of all stakeholder groups in funder-RR partnerships we will need to recruit **[number?]** people from each of the four stakeholder groups, (1) authors of partnership submissions, (2) personnel at partner funders (e.g. reviewers), (3) personnel at partner journals (e.g. reviewers and editors) and (4) other researchers. 
+
+**[People will be sampled from a sampling frame and invited to participate.]**
+
+### Inclusion criteria
+
+**[EDIT who will be include & why are these people were most appropriate to provide knowledge]**
+
+### Sample size determination
+
+We expect this sample size (up to N = **[sample?]**) to be **[justification = feasibility? data saturation? If data saturation how will it be assessed?]**. 
+
+## Interviewers
+
+```{r}
+
+# create interviewers table
+
+item <- c("Interviewer", "Credentials", "Occupation", "Gender", 
+          "Experience & training", "Relationships established", "Participant knowledge of interviewer", "Interviewer characteristics")
+
+katie <- c("KD", "BSc", "PhD student", "Female", 
+                      "None", "None", "None", "Believes RRs produce higher quality research than non-RRs for suitable research")
+
+jackie <- c("JT", "PhD", "Postdoctorate researcher", "Female", "?",
+            "?", "?", "?")
+
+# bind jackie & katie details together and print a table
+
+interviewees <- as.data.frame(rbind(katie, jackie))
+
+colnames(interviewees) <- item
+rownames(interviewees) <- c()
+
+pander(interviewees, split.table = Inf, justify = "left")
+
+
+```
+
+## Interview schedule
+
+The interviews will include the following questions to answer the study's research questions.
+
+To answer RQ1 we will ask respondents to tell us about **[their? - are we going to ask respondents about their partnerhips model who models in general?]** parnership model's:
+
+* potential improvements and the feasibility of these
 * strengths
 * weaknesses 
 * suitability for different research types
 * suitability for different funders
 * impact on research quality 
 * impact on manuscript quality
-* well-being
+* impact on stakeholders well-being
 * efficiency of research process (i.e. from idea conception to publication)
 * impact on funders reputation
 * impact on researcher's career prospects
 
-## Respondents and recruitment
+These questions could be framed as:
 
-To understand the experiences of all stakeholder groups in funder-RR partnerships we will need to recruit [number?] people from each of the four stakeholder groups, (1) authors of partnership submissions, (2) personnel at partner funders (e.g. reviewers), (3) personnel at partner journals (e.g. reviewers and editors) and (4) readers of partnership publications. 
+* What are the characteristics of existing partnerships models you have experience of?
+* What partnership model offers the most benefit to all stakeholders (editors, reviewers, funders, authors, researchers)?
+* What partnership model is the most acceptable to all users (editors, reviewers funders and authors)?
+* How might implementation of a partnership model vary?
+* What positive effects might stakeholders experience from a partnership?
+* If any, What is responsible for these positive effect?
+* What unintended effects might stakeholders experience from a partnership?
+* If any, what is responsible fo these unintended effects?
 
-People will be sampled [how?]. 
+To answer RQ2 we will ask respondents:
 
-### Inclusion criteria
+* What outcome measures should be taken?
+* What outcomes that indicate benefit to all stakeholders (editors, reviewers, funders, authors, researchers) can be collected?
 
-[why participant were most appropriate to provide knowledge]
+To answer RQ3 we will ask respondents:
 
-### Sample size determination
+* How could participants be recruited to the RCT?
+* How could participants be randomised in the RCT?
+* How could retention of participants in the RCT be maximised?
 
-We expect this sample size (up to N = [sample?]) to be [justification? feasibility? data saturation?]. 
-
-## Measures
 
 ## Materials
+
+The entire study will require the following materials
+
+* Interview schedule
+* Audio recorder
 
 ## Transcription
 
 We are only interested in the information communicated during the interview, not how it is communicated. 
-Therefore interviews will be trascribed by RC using denaturalised transcription (@oliver2005).
+Therefore interviews will be trascribed by RC using denaturalised transcription [@oliver2005].
 This means utterances or noises deemed unnecessary for understanding the original meaning of the content will not be transcribed.
 RC will use the transcription notation described in [Table 1](### *Table 1. Transcription notation*)
 See [Table 1](Table 1) for the transcription protocol for this study.
@@ -221,30 +270,31 @@ rbind(no, yes) %>%
 
 ## Procedure
 
-KD and JT will then invite selected people by email [or phone?].
+KD and JT will then invite selected people by email **[or phone?]**.
 If an individual agrees to particpate the information sheet and online consent form will be emailed to them. 
 Once consent is received the respondent and interviewer will arrange the interview for a mutally convenient time.
 Interviews will be face-to-face in Bristol or by telephone, which ever the respondent prefers. However travel will not be reimbused.
 If multiple respondents reside in the same place and can be interviewed on the same day it may be justifiable for the interviewer to offer to travel to meet them.
-JT or KD will conduct the interviews, they will be audio recorded and last around [45?] minutes.
+JT or KD will conduct the interviews, they will be audio recorded and last around **[45?]** minutes.
+No field notes will be taken during the interviews.
+At the end of the interview the respondent will be asked how they would like their data to be shared.
 If the audio recording is of poor quality the respondent will be invited for a second interview.
 RC will transcribe the interviews.
+The transcripts will be sent to the respondent. 
+They will be asked if they are happy with their chosen method of data sharing and if they have any comments or corrections.
+KD and JC will analyse the interviews.
+**[share the results with the repsondents and ask for comments/corrections]** 
 
 
 ## Analysis plan
 
-### Thematic analysis
+The interview transcripts will be analysed using thematic analysis. 
 
-[highlighting, examining & recording patterns in data (coding)]
-
-### Data saturation
-
-[assessing & reporting]
 
 
 # Ethical Considerations and Informed Consent
 
-Ethics approval has been/will be obtained from the School of Psychological Science Research Ethics Committee  at the University of Bristol (Approval Code: [insert once given] ).  
+Ethics approval has been/will be obtained from the School of Psychological Science Research Ethics Committee  at the University of Bristol (Approval Code: **[insert once given]** ).  
 The study will be conducted according to the revised Declaration of Helsinki  (2013) and the 1996 ICH Guidelines for Good Clinical Practice E6(R1). 
 The investigator will explain the nature, purpose and risks of the study to the participant. 
 The interviewee will receive the information sheet in advance of the study session. There will be no time restriction on how long interviewees take to respond. 
@@ -259,15 +309,16 @@ There are no expected hazards, due to the study consisting of an interview of no
 # Data Management
 
 All aspects of the Data Protection Act will be adhered to. Consent forms will be retained by the School of Psychological Science for a period of 10 years after study completion. 
-All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF. Almost everything will be hosted publicly, except the audio recordings which will remain private [?]. 
+All project materials (including the data, analysis code, protocols, interview schedules) will be hosted on the OSF. Almost everything will be hosted publicly. Only the audio recordings, non-anonymised versions of transcripts and transcripts from respondents who specifically request their data not to be shared will remain private. 
 
 ## Anonymised project data
 
-[EDIT: Case report forms (CRFs) and electronic data will be anonymised by a unique numeric identifier. CRFs will be stored in a locked office. All data requested on the CRF will be recorded. All missing data will be explained. If any entry errors are made, a single straight line will be drawn through the incorrect entry and the correct data entered above it; to correct such an error. All such changes will be initialed and dated. Once data from CRFs have been inputted into a data spreadsheet they will undergo a reliability check (20% check by independent researcher). If an error rate greater than 1% is obtained the data will be re-inputted in full and assessed again. After the data have been positively assessed, the CRFs will be destroyed in the School's confidential waste facility .
+Respondents will choose between three methods of data sharing: "share my data without naming me", "share my data anonymously (meaning all names will be removed)" and "don't share my data". 
+We need to allow respondents to request us not to share their data because it is unlikely that we can promise the data will be non-identifiable given that our population is small and includes public figures. 
+Respondents will be able to change their request  requested method of data sharing until the data is shared. 
+All electronic data will be anonymised by a unique numeric identifier.
 
-Original computer data files will be backed up on a secured University of Bristol network drive. At the end of the study, electronic study data (including finalised data sheet) will be transferred to a designated University of Bristol Research Data Storage Facility for long-term archiving. Study data will be kept for a minimum of 15  years. At the appropriate time the data sheet will be locked and made open using the University of Bristol Research Data Repository .]
-
-[See Table 1 - how can we anonymise text? There are several text anonymisation tools available]
+Original computer data files will be backed up on a secured University of Bristol network drive. At the end of the study, electronic study data (including finalised data sheet) will be transferred to a designated University of Bristol Research Data Storage Facility for long-term archiving. Study data will be kept for a minimum of 15  years. At the appropriate time the data sheet will be locked and made open using the University of Bristol Research Data Repository.
 
 ## Participant contact details
 
@@ -279,13 +330,9 @@ If a participant decides that they do not want their data used after their parti
 
 # Quality Control and Quality Assurance
  
-[EDIT: The investigators will be responsible for data quality. 
+The investigators will be responsible for data quality. 
 After approximately 10% of data collection has been completed, the study will undergo an in-house quality assessment.
-During this monitoring process all CRFs and study documents will be assessed as well as the investigators laboratory management and participant engagement, and corrected where necessary.
-
-Post-study checks will be conducted on data entry by an independent researcher. This researcher will re-enter 20% of hardcopy participant data. A threshold of 1% will be used, whereby error rates greater than 1% will require the data to be re-entered. A 100% check will be made on allocation to test condition.]
-
-This protocol was completed using the COREQ 
+**[EDIT: During this monitoring process all CRFs and study documents will be assessed as well as the investigators laboratory management and participant engagement, and corrected where necessary. Post-study checks will be conducted on data entry by an independent researcher. This researcher will re-enter 20% of hardcopy participant data. A threshold of 1% will be used, whereby error rates greater than 1% will require the data to be re-entered.]**
 
 # Insurance
 
@@ -319,11 +366,11 @@ Bristol, BS8 1TU,
 jackie.thompson@bristol.ac.uk 
 
 Christopher Chambers
-[insert]
+**[insert]**
 
 # Contributions and Authorship
  
-KD and JT are the guarantors of the project. MM will supervise the project. [contributions to protocol]
+KD and JT are the guarantors of the project. MM will supervise the project. **[contributions to protocol]**
 
 # Funding Source
 
@@ -331,11 +378,11 @@ This work is being funded by the John Climax Benevolent Fund.
 The funder will support the conduct of the work by paying KD's stipend. 
 The funder has and will have no input on any aspect of the project, such the protocol design, data collection, data analysis nor interpretation or publication of results. 
 
-[others?]
+**[others?]**
 
 # Conflicts of Interest
 
-[Chris & Marcus?]
+**[Chris & Marcus?]**
 
 # Appendices
 
@@ -350,7 +397,7 @@ Children's Tumor Foundation (CTF) & PLoS ONE: Drug Discovery Initiative - Regist
 - CTF decides on basis of reviews which LOIs to invite for full submission 
 - Researchers make full submission in Stage 1 RR format; this is submitted to PLoS One, along with original CTF reviews, for review (including statistical review) by PLoS ONE reviewers 
 - Stage 1 review suggestions sent back to authors, who are asked to incorporate and resubmit within 1-2 weeks 
-- If reviewers (or editor??) are satisfied -- IPA granted [correct]
+- If reviewers (or editor??) are satisfied -- IPA granted **[correct]**
 - Authors post registrations ASAP after IPA 
 - Stage 1 protocols are not published following IPA. Instead they are held in reserve by the journal and integrated into the completed article following approval of the final Stage 2 manuscript. 
   
@@ -371,7 +418,7 @@ Cancer Research UK (CRUK) & Nicotine and Tobacco Research (N&TR)
 - After receiving their award letter, funded projects are given the opportunity to submit RR to N&TR 
 - N&TR assesses Stage 1 and eventually Stage 2 submissions like a normal RR
         	
-[insert images]
+**[insert images]**
 
 ## Appendix B. Completed COREQ checklist
 
